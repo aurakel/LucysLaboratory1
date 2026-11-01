@@ -1,0 +1,767 @@
+<!doctype html><html lang="de-CH"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#153146"><meta name="description" content="Lucys persönliche interaktive Chemie-Lernwelt für ihre erste Prüfung mit 15 Themen und 391 Übungsfragen."><title>Lucys Labor – Chemie lernen</title><style>:root{--ink:#1e3548;--muted:#6f8293;--line:#e3e9ef;--teal:#148e91;--teal-dark:#0b777e;--mint:#e1f7f1;--mint-deep:#b6ebdc;--gold:#e3ab5e;--soft:#f4f8fc;--paper:#fff;--shell:#f6f9fb;--pink:#fff0e9;--side:#153146;--lavender:#ecebfa;--radius:18px;--shadow:0 9px 35px rgba(29,61,80,.06);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:var(--ink)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--shell);color:var(--ink);font-size:15px;line-height:1.6}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #f4b54b;outline-offset:3px}h1,h2,h3,h4,p,figure{margin-top:0}h1,h2,h3,h4{line-height:1.2;letter-spacing:-.026em}h1{font-size:clamp(2.1rem,3.4vw,3.35rem);font-weight:830}h2{font-size:1.6rem}h3{font-size:1.2rem}small{font-size:.78rem}p{color:#556b7c}.eyebrow{font-size:.72rem;font-weight:800;color:#238b88;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:13px}.app-shell{display:grid;grid-template-columns:272px minmax(0,1fr);max-width:1900px;margin:0 auto;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;scrollbar-width:thin;background:var(--side);color:#fff;padding:27px 18px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:12px;padding:7px 9px 26px;color:#fff}.brand[role=button]{cursor:pointer}.brand-icon{display:grid;place-items:center;background:#e5f9f2;color:#16868e;border-radius:16px;width:44px;height:44px;flex-shrink:0;font-size:29px;font-weight:600}.brand strong{display:block;font-size:1.1rem;letter-spacing:.1em;white-space:nowrap}.brand small{display:block;color:#b7ccd7;font-size:.73rem}.sidebar-caption{color:#86aabd;font-size:.66rem;letter-spacing:.16em;font-weight:800;padding:3px 12px 12px}.navlinks{display:flex;flex-direction:column;gap:3px}.nav-group{padding:19px 11px 8px;font-size:.69rem;letter-spacing:.085em;text-transform:uppercase;color:#8caebe;font-weight:750}.nav-main,.nav-topic{background:transparent;border:0;color:#c9dce5;text-align:left;width:100%;border-radius:11px;display:flex;align-items:center;gap:11px;transition:background .16s,color .16s}.nav-main{padding:11px 14px;font-weight:650;font-size:.9rem}.nav-topic{min-height:48px;padding:7px 8px;font-size:.815rem}.nav-main:hover,.nav-topic:hover,.nav-main.active,.nav-topic.active{background:#254c60;color:#fff}.nav-topic.active{box-shadow:inset 3px 0 #73dbc3}.nav-ico{width:23px;text-align:center;font-size:17px}.nav-copy{flex:1;line-height:1.3;min-width:0}.nav-mini{font-size:.66rem;color:#83aebd;display:block;margin-top:2px}.nav-pip{width:7px;height:7px;border:1px solid #527486;border-radius:50%;flex-shrink:0}.nav-pip.started{background:#d7a55e;border:0}.nav-pip.yes{background:#6dd9b4;border:0}.side-bottom{margin-top:auto;padding:24px 10px 1px}.side-footer{font-weight:650;color:#b0f1d5;font-size:.82rem}.side-bottom small{color:#739caf}.workspace{min-width:0;display:flex;flex-direction:column}.main-content{padding:38px clamp(24px,4vw,66px) 70px;max-width:1510px;width:100%;margin:0 auto;flex:1}.footer{border-top:1px solid var(--line);padding:21px 48px;display:flex;justify-content:space-between;gap:16px;color:#94a2ad;font-size:.72rem}.mobile-top,.mobile-shade{display:none}
+.btn{border:1px solid transparent;border-radius:13px;padding:12px 19px;min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:770;font-size:.91rem;transition:transform .15s,box-shadow .15s,background .15s}.btn:hover{transform:translateY(-1px)}.btn.primary{background:#087f84;color:#fff;box-shadow:0 5px 18px rgba(18,132,136,.18)}.btn.primary:hover{background:#096c72}.btn.secondary{background:#fff;border-color:#cbdde4;color:#1d5b70}.btn.secondary:hover{background:#e8f6f8}.btn.ghost{background:transparent;color:#536c7c;border-color:#d9e3e9}.btn.danger{color:#a94548;background:#fff4f3;border-color:#f1d6d1}.btn.wide{width:100%}.little{font-size:.77rem;color:#8191a0}.back-link{padding:5px 0;background:none;border:0;font-size:.84rem;font-weight:750;color:#16858e;margin-bottom:25px}.back-link:hover{color:#0c656d}.tag{display:inline-flex;align-items:center;background:#f0f4fc;border-radius:100px;color:#658095;font-size:.71rem;font-weight:750;letter-spacing:.02em;padding:5px 10px}.tag-soft{background:#edf8f4;color:#238f83}.plain-link{background:transparent;border:none;color:#1a8b8e;font-weight:700;font-size:.81rem;padding:10px}.track{height:9px;background:#e7edf3;border-radius:100px;overflow:hidden;min-width:20px}.track span{display:block;height:100%;border-radius:100px;background:linear-gradient(90deg,#5dcac4,#148995);transition:width .25s}.meter{width:180px;height:180px;background:conic-gradient(#18aab0 calc(var(--score)*1%),#dcebea 0);border-radius:50%;display:grid;place-items:center;position:relative;flex-shrink:0}.meter:before{content:'';position:absolute;inset:13px;border-radius:50%;background:#fff}.meter-inside{position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;line-height:1.1}.meter-number{font-size:3.25rem;letter-spacing:-.075em;font-weight:860;color:#193d49}.meter-number small{font-size:1.25rem;letter-spacing:0;margin-left:5px}.meter-label{font-size:.72rem;color:#85929c;line-height:1.3;margin-top:5px;font-weight:700;text-align:center}.welcome{background:radial-gradient(circle at 82% 10%,rgba(246,216,146,.28),transparent 34%),linear-gradient(123deg,#effaf7,#f9f6ee 80%);border:1px solid #e6efe8;border-radius:27px;padding:clamp(25px,3.5vw,51px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(220px,.7fr);gap:38px;align-items:center}.welcome h1{max-width:750px;margin-bottom:17px}.twinkle{color:#168a8e}.lead{font-size:1rem;max-width:630px;line-height:1.82}.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:30px}.score-card{background:#fff;padding:23px 20px;border:1px solid #e5ece7;box-shadow:0 18px 43px rgba(28,61,69,.07);border-radius:22px;display:flex;align-items:center;flex-direction:column;color:var(--ink);gap:6px;text-align:center}.score-card .meter{width:155px;height:155px;margin-bottom:14px}.score-card .meter:before{inset:12px}.score-card .meter-number{font-size:2.85rem}.score-card strong{font-size:1.04rem}.score-card>span:not(.meter){font-size:.77rem;color:#697e90}.score-card>small{color:#168d8e;font-weight:700}.score-card:hover{box-shadow:0 21px 41px rgba(28,61,69,.13);transform:translateY(-2px)}.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:19px 0 38px}.mini-stat{padding:18px 21px;border:1px solid #e7edf2;background:white;border-radius:15px}.mini-stat strong{display:block;font-size:1.7rem;letter-spacing:-.05em;line-height:1.24}.mini-stat strong span{font-size:.96rem;color:#9daab3;font-weight:600;letter-spacing:0;margin-left:2px}.mini-stat small{color:#8193a0}.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin:0 0 22px}.section-heading h2{margin-bottom:6px}.section-heading p{margin:0;font-size:.86rem}.group-section{margin-bottom:29px}.group-section h3{font-size:.86rem;color:#8b9ca9;text-transform:uppercase;letter-spacing:.06em;margin-bottom:13px}.topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.topic-card{display:flex;align-items:stretch;text-align:left;flex-direction:column;padding:20px 22px;border:1px solid #e5ebf0;border-radius:18px;box-shadow:0 3px 14px rgba(30,61,83,.025);background:#fff;min-height:220px;transition:border-color .16s,transform .16s,box-shadow .16s}.topic-card:hover{border-color:#6dcac0;transform:translateY(-3px);box-shadow:var(--shadow)}.card-top{display:flex;justify-content:space-between;align-items:center}.topic-icon{width:43px;height:43px;border-radius:12px;display:grid;place-items:center;background:#f0f7f6;font-size:23px}.topic-card h4{font-size:1.03rem;margin:15px 0 8px}.topic-card p{font-size:.82rem;line-height:1.5;margin:0 0 21px;flex:1}.card-footer small{display:block;font-size:.72rem;color:#83929c;margin-top:8px}.info-strip{display:flex;gap:19px;align-items:flex-start;margin-top:28px;padding:24px;border:1px solid #dfebe9;border-radius:19px;background:#eef9f7}.bubble-icon{background:#d1f4e8;border-radius:12px;padding:9px;font-size:1.3rem}.info-strip p{margin:3px 0 0;font-size:.84rem;line-height:1.7}
+.topic-page{max-width:1200px}.topic-header{margin-bottom:27px}.topic-title-row{display:flex;align-items:center;gap:20px}.big-emoji{width:80px;height:80px;background:#e7f6f4;display:grid;place-items:center;font-size:40px;border-radius:22px;flex-shrink:0}.topic-header h1{font-size:clamp(2.05rem,3vw,3rem);margin:0 0 5px}.topic-title-row p{margin:0}.topic-intro{font-size:1.02rem;line-height:1.78;margin-top:25px;background:#fff;border-left:5px solid #60c6b5;border-radius:0 12px 12px 0;padding:19px 23px;max-width:950px}.lesson-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:24px;align-items:start}.lesson-main{min-width:0}.lesson-card{display:flex;align-items:flex-start;gap:18px;padding:26px 28px;margin-bottom:13px;background:#fff;border:1px solid var(--line);border-radius:17px}.lesson-number{color:#a7c1c7;font-weight:900;font-size:1.4rem;min-width:33px;letter-spacing:-.04em;line-height:1.25}.lesson-card h2{font-size:1.18rem;margin-bottom:8px}.lesson-card p{font-size:.94rem;line-height:1.85;margin:0}.lesson-card strong{color:#214756}.lesson-aside{position:sticky;top:24px}.lesson-progress,.test-entry{background:#fff;border:1px solid var(--line);border-radius:18px;padding:23px;margin-bottom:16px}.lesson-progress .meter{width:137px;height:137px;margin:12px auto 21px}.lesson-progress .meter:before{inset:11px}.lesson-progress .meter-number{font-size:2.5rem}.skill-line{display:flex;justify-content:space-between;border-top:1px solid #eef1f4;padding:12px 0;gap:15px;font-size:.81rem}.skill-line b{color:#208e8b;white-space:nowrap}.test-entry h3{margin:8px 0 10px}.test-entry p{font-size:.84rem;line-height:1.78}.test-entry small{display:block;color:#8b9ca9;margin-top:11px;text-align:center}.science-figure{margin:19px 0;background:#fff;border:1px solid #dfe7ee;border-radius:19px;padding:19px;overflow:hidden}.figure-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:10px}.figure-top strong{color:#24475c;font-size:.89rem}.figure-top span{color:#92a5ad;font-size:.74rem}.science-figure svg{width:100%;height:auto;max-height:290px;display:block;margin:auto}.science-figure figcaption{font-size:.76rem;color:#84939e;margin-top:14px;line-height:1.6}.remember{background:#edf9f5;border:1px solid #cbebe3;border-radius:18px;padding:22px 25px;display:flex;align-items:flex-start;gap:14px;margin-top:18px}.remember>span{font-size:1.7rem;color:#26a590}.remember strong{font-size:.98rem;color:#127a75}.remember p{margin:4px 0 0;line-height:1.7;color:#365b58}.sources{margin:18px 0 0;color:#92a0a9;font-size:.76rem}.sources summary{cursor:pointer;font-weight:650;color:#7794a2}.sources p{font-size:.8rem;margin:10px 0 3px}.bottom-test{border-radius:20px;background:#173c4e;color:#fff;padding:24px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:28px}.bottom-test strong{display:block;font-size:1.15rem}.bottom-test span{font-size:.83rem;color:#aac8d4}.transitions{padding:7px 1px}.transition-row{display:flex;align-items:center;justify-content:space-between;text-align:center;gap:4px}.transition-row b{background:#e5f3f8;border:1px solid #b7d9e9;border-radius:10px;padding:12px 4px;flex:1;font-size:.86rem}.transition-row span{font-size:1.8rem;color:#2c9ca3}.transition-lines{display:flex;justify-content:space-around;gap:15px;margin:10px 0 17px;text-align:center;color:#5e7182;font-size:.83rem;line-height:1.9}.transition-lines strong{color:#168e93}.transition-direct{padding:13px;border-radius:11px;background:#fbf5e8;text-align:center;font-size:.82rem}.transition-direct strong{color:#976932}.elements{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:5px}.element-cell{padding:5px 3px 7px;text-align:center;background:#eef7f3;border:1px solid #b7dcd5;border-radius:7px;min-width:0;overflow:hidden}.element-cell small{display:block;font-size:.6rem;color:#4b868c}.element-cell strong{display:block;font-size:1.1rem}.element-cell span{font-size:.52rem;white-space:nowrap;display:block;overflow:hidden;text-overflow:ellipsis;color:#5e7c8b}.lab-widget{background:#fff;border:1px solid var(--line);border-radius:19px;padding:24px;margin:18px 0}.lab-head h3{margin:9px 0 5px}.lab-head p{font-size:.84rem}.lab-scene{display:flex;align-items:center;gap:20px;background:#f1f9fa;border-radius:13px;padding:18px;min-height:180px}.gas-box{position:relative;width:60%;height:154px;border:2px solid #a2c6d0;background:#fff;border-radius:13px;overflow:hidden;--duration:4s}.gas-dot{position:absolute;top:var(--y);left:var(--x);width:12px;height:12px;border-radius:50%;background:#45bcb7;animation:drift var(--duration) ease-in-out var(--delay) infinite alternate}@keyframes drift{to{transform:translate(var(--dx),var(--dy))}}.lab-readout{flex:1}.lab-readout strong{display:block;font-size:1.25rem}.lab-readout span{color:#78909a;font-size:.82rem}.range-label{display:block;font-weight:800;font-size:.83rem;margin:15px 0 2px}.lab-widget input[type=range]{width:100%;accent-color:#128c8d}.lab-widget>small{display:block;color:#8b9da7}.quiz-page,.result-page,.analysis-page{max-width:1030px;margin:auto}.quiz-page{max-width:805px}.quiz-head{display:flex;justify-content:space-between;gap:24px;align-items:center;margin:22px 0}.quiz-head h1{font-size:2.2rem;margin-bottom:7px}.quiz-head p{margin:0}.quiz-counter{border:1px solid var(--line);border-radius:13px;background:#fff;padding:13px 18px;white-space:nowrap;font-size:1.25rem;font-weight:820;color:#198889}.quiz-progress{display:flex;gap:7px;margin:0 0 24px}.quiz-progress span{height:8px;border-radius:10px;background:#e1e8ed;flex:1}.quiz-progress .active{background:#37aaa2}.question-panel{background:#fff;border:1px solid #e5eaf0;border-radius:23px;padding:clamp(21px,4.3vw,46px);box-shadow:var(--shadow)}.question-topic{font-size:.73rem;font-weight:800;color:#199395;text-transform:uppercase;letter-spacing:.1em}.question-panel h2{font-size:clamp(1.35rem,2.3vw,1.8rem);line-height:1.4;margin:11px 0 25px}.choices{display:flex;flex-direction:column;gap:11px}.choice{width:100%;border:1.5px solid #dce5eb;border-radius:13px;padding:14px 15px;background:#fff;display:flex;align-items:center;gap:15px;text-align:left;font-weight:630;color:#294253;min-height:60px;transition:border-color .15s,background .15s}.choice:not(:disabled):hover{background:#f4fbfa;border-color:#51bbb1}.choice .choice-letter{width:32px;height:32px;background:#eef3f5;border-radius:9px;display:grid;place-items:center;flex-shrink:0;font-size:.77rem;color:#6a7f90;font-weight:800}.choice.correct{background:#e9f9f0;border-color:#42bb90}.choice.wrong{background:#fff0ed;border-color:#e89379}.choice.correct .choice-letter{background:#b9ead4;color:#096c53}.choice.wrong .choice-letter{background:#fad4c9;color:#b44935}.choice:disabled{cursor:default}.answer-status{margin-left:auto;font-size:1.28rem;font-weight:900}.feedback{margin-top:24px;border-radius:13px;padding:17px 21px;background:#edf9f4;border:1px solid #bde7d5}.feedback-no{background:#fff6ee;border-color:#f1dbbb}.feedback strong{color:#1d745d}.feedback-no strong{color:#99692e}.feedback p{font-size:.88rem;margin:6px 0 0;line-height:1.7}.feedback small{font-weight:800;display:block;margin-top:10px}.quiz-buttons{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:23px}.quiz-help{text-align:center;font-size:.81rem;margin-top:18px;color:#8a9ba7}.result-hero{text-align:center;background:#effaf6;border:1px solid #d9f0e6;border-radius:24px;padding:35px 28px;margin-bottom:20px}.party-icon{font-size:2.9rem}.result-hero h1{font-size:2rem;margin:8px auto 12px;max-width:660px}.result-hero p{font-size:.97rem}.result-score{display:flex;justify-content:center;gap:25px;align-items:center;text-align:left;margin-top:23px}.result-score .meter{width:120px;height:120px}.result-score .meter:before{inset:10px}.result-score .meter-number{font-size:2rem}.result-score .meter-number small{font-size:.95rem}.result-score>div:last-child{display:flex;flex-direction:column}.result-score>div:last-child>span{font-size:.82rem;color:#728996}.result-score>div:last-child strong{font-size:2.2rem;line-height:1.2;color:#127f80}.result-score>div:last-child small{color:#7d9599}.result-analysis{background:#fff;border:1px solid var(--line);padding:27px 30px;border-radius:20px}.result-analysis h2{font-size:1.25rem;margin:6px 0 18px}.subresults{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:26px}.subresult{border:1px solid var(--line);background:#fbfcfe;border-radius:13px;padding:16px;display:flex;align-items:flex-start;gap:11px}.sub-dot{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;flex-shrink:0;font-weight:900}.sub-dot.ok{background:#d4f3e3;color:#198367}.sub-dot.needs{background:#fff1d9;color:#a16a1f}.subresult strong{display:block;font-size:.86rem}.subresult span:not(.sub-dot){display:block;font-size:.75rem;color:#83929c}.result-analysis>p{font-size:.86rem;line-height:1.8}.result-actions{display:flex;flex-wrap:wrap;gap:10px;margin:19px 0 4px}.analysis-header{margin-top:8px;margin-bottom:27px}.analysis-header h1{font-size:2.3rem;max-width:780px;margin-bottom:12px}.analysis-header p{max-width:790px}.analysis-summary{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:19px}.analysis-meter,.analysis-facts{border:1px solid var(--line);border-radius:19px;background:#fff;padding:22px;display:flex;align-items:center;gap:20px}.analysis-meter .meter{width:138px;height:138px}.analysis-meter .meter-number{font-size:2.5rem}.analysis-meter .meter:before{inset:11px}.analysis-meter>div:last-child strong{font-size:1.2rem}.analysis-meter p{font-size:.82rem;line-height:1.7;margin:7px 0 0}.analysis-facts{flex-direction:column;align-items:stretch;justify-content:space-around;gap:10px}.analysis-facts>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid #eef2f5;padding-bottom:7px}.analysis-facts>div:last-child{border:0;padding:0}.analysis-facts strong{font-size:1.5rem}.analysis-facts span{font-size:.8rem;color:#7a8f9b}.next-steps,.deep-analysis,.methodology{margin-top:28px}.next-steps h2,.deep-analysis h2,.methodology h2{font-size:1.4rem}.next-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.next-cards button{text-align:left;background:#e9f7f5;border:1px solid #cce9e2;padding:17px;border-radius:15px;display:flex;flex-direction:column;gap:6px;color:#295265}.next-cards button:hover{background:#ddf2ed}.next-cards span{font-size:.88rem;font-weight:800}.next-cards strong{font-size:1.2rem;color:#177e7d}.next-cards small{color:#71908c}.analyse-list{border:1px solid var(--line);background:#fff;border-radius:19px;overflow:hidden}.analyse-topic{border-bottom:1px solid var(--line)}.analyse-topic:last-child{border:0}.analyse-topic summary{list-style:none;display:flex;align-items:center;gap:13px;padding:17px 21px;cursor:pointer}.analyse-topic summary::-webkit-details-marker{display:none}.analyse-topic[open]>summary{background:#f5faf9}.analysis-list-ico{width:34px;height:34px;background:#eef6f8;border-radius:9px;display:grid;place-items:center;flex-shrink:0;font-size:20px}.analysis-name{flex:1;min-width:0}.analysis-name strong,.analysis-name small{display:block}.analysis-name strong{font-size:.89rem}.analysis-name small{color:#91a2ac;font-size:.71rem}.analysis-trackbar{width:135px}.analysis-trackbar .track{height:7px}.analyse-topic summary>b{font-size:.85rem;min-width:41px;text-align:right;color:#278889}.chevron{color:#8598a5;font-size:1.2rem}.analyse-topic[open] .chevron{transform:rotate(180deg)}.analyse-expanded{padding:3px 24px 24px 67px}.analysis-note{font-size:.78rem}.skill-detail{margin:16px 0 21px}.skill-detail-heading,.skill-detail-foot{display:flex;justify-content:space-between;align-items:center;gap:12px}.skill-detail-heading{font-size:.85rem;margin-bottom:8px}.skill-detail-heading span{font-size:.7rem;font-weight:800}.tone-good{color:#158b73}.tone-warn{color:#ae8036}.tone-neutral{color:#8da1aa}.skill-detail .track{height:7px}.skill-detail-foot{margin-top:8px}.skill-detail-foot small{color:#879ba6}.tiny-btn{background:none;border:0;color:#18898b;font-weight:750;font-size:.78rem;white-space:nowrap}.methodology{background:#fff;border:1px solid var(--line);padding:26px;border-radius:18px}.methodology p{font-size:.85rem;line-height:1.8}.methodology details{font-size:.86rem;color:#51697b}.methodology summary{cursor:pointer;color:#16888e;font-weight:750}.methodology details p{margin-top:10px}.data-buttons{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 10px}.methodology>small{color:#91a2a9}.mobile-shade{display:none}
+@media(min-width:1500px){.topic-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.welcome{grid-template-columns:1.8fr .65fr}}@media(max-width:1200px){.app-shell{grid-template-columns:235px minmax(0,1fr)}.sidebar{padding:23px 10px}.lesson-layout{grid-template-columns:minmax(0,1fr) 270px;gap:18px}.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.welcome{gap:15px}.main-content{padding:34px 24px 55px}}@media(max-width:860px){.app-shell{display:block}.sidebar{position:fixed;z-index:30;width:290px;max-width:85vw;transform:translateX(-105%);transition:transform .2s;height:100dvh}.menu-open .sidebar{transform:translateX(0)}.menu-open .mobile-shade{display:block;position:fixed;inset:0;background:rgba(9,26,36,.55);z-index:25}.mobile-top{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--side);color:white;position:sticky;top:0;z-index:12}.mobile-brand{padding:0;border:0;background:transparent;color:#fff}.mobile-brand .brand-icon{height:35px;width:35px;border-radius:10px;font-size:22px}.mobile-brand strong{font-size:.95rem}.mobile-menu-btn{border:1px solid #4c7286;color:white;border-radius:9px;background:transparent;padding:7px 11px;font-size:.82rem;font-weight:750}.lesson-layout{grid-template-columns:minmax(0,1fr)}.lesson-aside{position:static;display:grid;grid-template-columns:1fr 1fr;gap:13px}.lesson-progress,.test-entry{margin-bottom:0}.footer{padding:18px 24px}}@media(max-width:620px){.main-content{padding:22px 14px 45px}.welcome{grid-template-columns:1fr;padding:25px 20px;gap:24px}.welcome h1{font-size:2rem}.score-card{max-width:100%;width:100%;padding:20px}.stats-row{grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:32px}.mini-stat{padding:14px}.topic-grid{grid-template-columns:1fr}.topic-card{min-height:175px}.section-heading{display:block}.section-heading .plain-link{padding:9px 0}.topic-title-row{gap:13px;align-items:flex-start}.big-emoji{width:56px;height:56px;font-size:30px;border-radius:15px}.topic-header h1{font-size:1.9rem}.topic-intro{padding:14px 17px;font-size:.93rem}.lesson-aside{display:block}.lesson-card{padding:19px 17px;gap:11px}.lesson-card h2{font-size:1.06rem}.lesson-card p{font-size:.88rem}.lesson-number{min-width:23px;font-size:1.09rem}.bottom-test{flex-direction:column;align-items:stretch;text-align:center}.elements{grid-template-columns:repeat(5,1fr)}.subresults{grid-template-columns:1fr}.result-hero{padding:28px 17px}.result-score{gap:14px}.quiz-head h1{font-size:1.8rem}.question-panel{padding:22px 16px}.choice{padding:11px 9px;font-size:.85rem;gap:9px}.choice .choice-letter{height:28px;width:28px}.analysis-summary{grid-template-columns:1fr}.next-cards{grid-template-columns:1fr}.analyse-topic summary{padding:13px 10px;gap:9px}.analysis-trackbar{width:55px}.analysis-list-ico{width:28px;height:28px}.analysis-name strong{font-size:.79rem}.analysis-name small{font-size:.65rem}.analyse-expanded{padding:5px 13px 20px 13px}.skill-detail-foot{align-items:flex-start}.skill-detail-foot small{font-size:.66rem}.result-actions>.btn{width:100%}.footer{display:block;text-align:center}.footer span{display:block}.lab-scene{flex-direction:column}.gas-box{width:100%}.lab-readout{text-align:center}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.001ms!important;transition:none!important}}
+</style></head><body><div id="app"><main style="padding:3rem;font-family:system-ui">Lucys Chemielabor wird geladen …</main></div><script>'use strict';
+const TOPICS = [
+{
+ id:'chemie', group:'01 · Grundlagen', icon:'⚗️', title:'Was ist Chemie?', sub:'Stoffe, Eigenschaften und die Arbeit im Labor', time:8,
+ skills:[['taetigkeit','Arbeit der Chemiker:innen'],['stoffe','Stoffe und Eigenschaften'],['reaktion','Chemische Reaktionen']],
+ intro:'Chemie ist die Wissenschaft von Stoffen. Sie untersucht, woraus Dinge bestehen, wie sie aufgebaut sind und wie sie sich verändern.',
+ blocks:[
+  ['Stoffe sind überall','Wasser, Luft, Kupfer, Zucker und Holz bestehen aus Stoffen. Jeder Stoff hat bestimmte <strong>Eigenschaften</strong>: zum Beispiel Farbe, Geruch, Dichte und Schmelzpunkt. Chemiker:innen untersuchen und vergleichen diese Merkmale.'],
+  ['Was macht man in der Chemie?','Man beobachtet, stellt Fragen, führt <strong>Experimente</strong> durch und entwickelt <strong>Modelle</strong>. Mit Formeln und Reaktionsgleichungen beschreibt man, was bei einer Reaktion geschieht.'],
+  ['Das Wichtigste','Bei einer <strong>chemischen Reaktion</strong> entstehen Stoffe mit neuen Eigenschaften. Beispiel aus den Unterlagen: Ausgangsstoffe (Edukte) reagieren zu Endstoffen (Produkten).']
+ ], diagram:'reaction', memory:'Chemie fragt: Welcher Stoff ist es? Wie ist er aufgebaut? Was geschieht, wenn er reagiert?', sources:['Was ist Chemie_.pdf','Womit beschäftigt sich Chemie_.pdf']
+},
+{
+ id:'wechsel',group:'01 · Grundlagen',icon:'🔄', title:'Physikalisch oder chemisch?', sub:'Veränderung erkennen und begründen',time:9,
+ skills:[['phys','Physikalische Vorgänge'],['chem','Chemische Vorgänge'],['abgrenz','Begründungen und Grenzfälle']],
+ intro:'Bei beiden Vorgängen verändert sich etwas. Die entscheidende Frage lautet: <strong>Entsteht ein neuer Stoff?</strong>',
+ blocks:[['Physikalischer Vorgang','Die Stoffart bleibt gleich. Eis schmilzt zu Wasser; Wasser verdunstet. Es bleibt immer H₂O. Auch das Vermischen von Salz und Wasser ist grundsätzlich ein physikalischer Vorgang.'],['Chemischer Vorgang','Es entstehen <strong>neue Stoffe mit anderen Eigenschaften</strong>. Beispiele aus den Unterlagen: Essig + Backpulver (Gasentwicklung) oder eine braune Flüssigkeit, deren Mischung eine andere Farbe annimmt.'],['Wichtig für die Prüfung','Verlass dich nicht nur auf die Farbe! Eine Farbänderung kann ein Hinweis auf eine chemische Reaktion sein, beweist sie aber nicht immer. Begründe mit der <strong>Stoffumwandlung</strong>.']],
+ diagram:'reaction',memory:'Physikalisch: kein neuer Stoff. Chemisch: neue Stoffe entstehen.',sources:['Der Unterschied zwischen Chemie und Physik.pdf','Womit beschäftigt sich Chemie_.pdf']
+},
+{
+ id:'modelle',group:'02 · Teilchen',icon:'🧩',title:'Wozu dienen Modelle?',sub:'Stoffebene und Modellebene',time:7,
+ skills:[['modell','Eigenschaften eines Modells'],['ebene','Stoffebene und Modellebene']],
+ intro:'Ein Modell zeigt etwas Kompliziertes in vereinfachter Form. So können wir uns Dinge vorstellen, die viel zu klein sind, um sie zu sehen.',
+ blocks:[['Was ist ein Modell?','Eine <strong>vereinfachte Vorstellung</strong> eines Gegenstands oder Vorgangs. Das Modell ist nicht die Wirklichkeit. Es hebt wichtige Dinge hervor und lässt andere weg.'],['Zwei Betrachtungsebenen','<strong>Stoffebene:</strong> Du beobachtest Wasser im Glas. <strong>Modellebene:</strong> Du zeichnest viele kleine Wasserteilchen. Das sind zwei unterschiedliche Beschreibungen derselben Sache.'],['Beispiel: Wasser und Alkohol','Mischt man 50 ml Wasser mit 50 ml Alkohol, ist das Volumen oft weniger als 100 ml. Im Teilchenmodell können Teilchen sich in Zwischenräume setzen. Es geht nicht darum, dass Teilchen verschwinden.']],diagram:'mixture', memory:'Das Modell erklärt, was man beobachtet. Es ist eine Hilfe – kein Foto der Wirklichkeit.',sources:['Teilchenmodell.pdf']
+},
+{
+ id:'teilchen',group:'02 · Teilchen',icon:'🔬',title:'Das Teilchenmodell',sub:'Aufbau von Stoffen und Zwischenräume',time:8,
+ skills:[['grundsatz','Grundaussagen'],['zwischen','Zwischenräume und Mischungen'],['vorstell','Modelldarstellungen verstehen']],
+ intro:'Alles besteht aus sehr kleinen Teilchen. Das Teilchenmodell hilft dir zu erklären, warum sich Stoffe mischen, ausbreiten oder ihren Aggregatzustand wechseln.',
+ blocks:[['Drei wichtige Aussagen','<strong>1.</strong> Jeder Stoff besteht aus kleinsten Teilchen. <strong>2.</strong> Die Teilchen eines Reinstoffs sind untereinander gleich; verschiedene Stoffe haben verschiedene Teilchen. <strong>3.</strong> Zwischen Teilchen gibt es Zwischenräume.'],['Die Teilchen sind winzig','Bereits ein kleiner Wassertropfen enthält unvorstellbar viele Wasserteilchen. Ein einzelnes Teilchen hat nicht dieselben Stoffeigenschaften wie eine grosse Menge des Stoffes.'],['Eine typische Prüfungsfrage','Warum kann sich das Volumen beim Mischen verringern? Teilchen unterschiedlicher Stoffe können sich dichter anordnen und Zwischenräume ausfüllen.']],diagram:'mixture',memory:'Ein Stoff ist aus Teilchen aufgebaut. Teilchen können unterschiedlich angeordnet sein.',sources:['Teilchenmodell.pdf']
+},
+{
+ id:'zustaende',group:'03 · Wärme und Zustände',icon:'🧊',title:'Die drei Aggregatzustände',sub:'Fest, flüssig und gasförmig',time:8,
+ skills:[['fest','Feststoff'],['fluessig','Flüssigkeit'],['gas','Gas und Komprimierbarkeit']],
+ intro:'Ein Stoff kann fest, flüssig oder gasförmig sein. Die Teilchen bleiben dieselben; ihre Anordnung und Bewegung ändern sich.',
+ blocks:[['Fest','Teilchen liegen nahe und meist geordnet. Sie <strong>schwingen um feste Plätze</strong>. Ein Feststoff behält ungefähr seine eigene Form.'],['Flüssig','Die Teilchen liegen nahe beieinander, können sich aber gegeneinander bewegen. Eine Flüssigkeit hat ein bestimmtes Volumen, nimmt aber die Form ihres Gefässes an.'],['Gasförmig','Die Teilchen bewegen sich weitgehend frei und sind weit voneinander entfernt. Ein Gas füllt den verfügbaren Raum und lässt sich vergleichsweise gut zusammendrücken.'],['Experiment: die Dose','Beim Abkühlen von Wasserdampf in einer Dose kondensiert er zu Wasser. Der Druck innen sinkt; der äussere Luftdruck kann die Dose zusammendrücken.']], diagram:'states',memory:'Fest = feste Plätze. Flüssig = beweglich und dicht. Gas = weit auseinander und frei.',sources:['Aggregatzustände.pdf','Teilchenmodell.pdf']
+},
+{
+ id:'uebergaenge',group:'03 · Wärme und Zustände',icon:'💧',title:'Alle Zustandsübergänge',sub:'Schmelzen, Sieden und mehr',time:9,
+ skills:[['waermer','Beim Erwärmen'],['kaelter','Beim Abkühlen'],['direkt','Direkte Übergänge']],
+ intro:'Beim Wechsel des Aggregatzustands entsteht <strong>kein neuer Stoff</strong>. Es ändern sich Teilchenanordnung und Beweglichkeit.',
+ blocks:[['Beim Erwärmen','<strong>Schmelzen:</strong> fest → flüssig. <strong>Verdampfen:</strong> flüssig → gasförmig. <strong>Sublimieren:</strong> fest → gasförmig (z. B. Trockeneis bei Normaldruck).'],['Beim Abkühlen','<strong>Erstarren:</strong> flüssig → fest. <strong>Kondensieren:</strong> gasförmig → flüssig. <strong>Resublimieren:</strong> gasförmig → fest (z. B. Reif).'],['Eine Stolperfalle','Verdunsten ist Verdampfen <em>unterhalb des Siedepunkts</em> an der Flüssigkeitsoberfläche. Sieden betrifft die Flüssigkeit als Ganzes; dabei bilden sich Dampfblasen.']],diagram:'transitions',memory:'Lerne die sechs Pfeile: schmelzen, erstarren, verdampfen, kondensieren, sublimieren, resublimieren.',sources:['Aggregatzustände.pdf','Teilchenbewegung.pdf']
+},
+{
+ id:'bewegung',group:'03 · Wärme und Zustände',icon:'🌡️',title:'Temperatur, Teilchen und Druck',sub:'Bewegung verstehen statt auswendig lernen',time:10,
+ skills:[['temperatur','Temperatur und Bewegung'],['druck','Gasdruck'],['null','Absoluter Nullpunkt']],
+ intro:'Temperatur hängt mit der <strong>durchschnittlichen Bewegungsenergie</strong> von Teilchen zusammen. Gasdruck entsteht, wenn Teilchen gegen Wände stossen.',
+ blocks:[['Was bedeutet warm?','Im Durchschnitt bewegen oder schwingen Teilchen bei höherer Temperatur heftiger. Nicht alle Teilchen sind zu einem Zeitpunkt gleich schnell.'],['Warum drückt ein Gas?','Gasteilchen bewegen sich und stossen immer wieder gegen die Gefässwände. Viele solche Stösse erzeugen den messbaren <strong>Druck</strong>.'],['Was ist 0 Kelvin?','Der absolute Nullpunkt entspricht <strong>0 K = −273,15 °C</strong>. Er ist eine theoretische untere Grenze der Temperatur.'],['Wichtig','Auch bei Raumtemperatur bewegen sich Teilchen. Ein Gas kann bei Erwärmung mehr Druck ausüben, wenn sein Gefäss geschlossen und starr bleibt.']],diagram:'states',memory:'Höhere Temperatur → im Mittel mehr Bewegungsenergie. Gasdruck → Stösse an Gefässwände.',sources:['Teilchenbewegung.pdf']
+},
+{
+ id:'kurve',group:'03 · Wärme und Zustände',icon:'📈',title:'Erwärmungskurven lesen',sub:'Warum bleibt die Temperatur manchmal gleich?',time:11,
+ skills:[['anstieg','Steigende Kurven'],['plateau','Plateaus und Energie'],['werte','Schmelz- und Siedepunkt']],
+ intro:'Wenn wir Eis erwärmen, steigt die Temperatur nicht immer gleichmässig. Beim Schmelzen und Sieden entstehen <strong>waagrechte Abschnitte</strong>.',
+ blocks:[['Steigende Linie','Innerhalb eines Aggregatzustands nimmt die Temperatur zu: Die mittlere Bewegungsenergie der Teilchen steigt.'],['Waagrechte Linie (Plateau)','Beim Schmelzen oder Sieden wird weiterhin Energie zugeführt. Sie wird für das Lösen beziehungsweise Überwinden von Teilchenanziehungen gebraucht. Die Temperatur bleibt während des Übergangs konstant (bei gleichem Druck).'],['Zahlen aus den Unterlagen','Wasser schmilzt bei etwa <strong>0 °C</strong> und siedet bei <strong>100 °C</strong> bei Normaldruck. Blei schmilzt bei <strong>327 °C</strong> und siedet laut Aufgabenblatt bei <strong>1740 °C</strong>. Trockeneis sublimiert bei etwa <strong>−78 °C</strong>.']],diagram:'curve',memory:'Steigend = Temperatur steigt. Waagrecht = Zustandswechsel trotz weiterer Energiezufuhr.',sources:['Teilchenbewegung.pdf']
+},
+{
+ id:'reinstoff',group:'04 · Stoffgemische',icon:'🧪',title:'Reinstoff oder Gemisch?',sub:'Eine oder mehrere Teilchensorten',time:9,
+ skills:[['rein','Reinstoff erkennen'],['gemisch','Gemisch erkennen'],['mischen','Stoffe beim Mischen']],
+ intro:'Ein Reinstoff besteht aus <strong>einer Art von Teilchen</strong>. Ein Gemisch enthält <strong>mindestens zwei verschiedene Teilchensorten</strong>.',
+ blocks:[['Reinstoff','Reines Wasser besteht aus Wasserteilchen (H₂O). Auch reiner Sauerstoff ist ein Reinstoff, obwohl jedes Sauerstoffmolekül aus zwei Atomen besteht.'],['Gemisch','Luft besteht aus verschiedenen Gasen. Salzwasser enthält Wasserteilchen und gelöste Salzteilchen. Die Zusammensetzung kann verschieden sein.'],['Mischen ist nicht automatisch eine Reaktion','Beim Mischen bleiben die Bestandteile meist chemisch dieselben. Löst du Zucker in Wasser, entsteht nicht plötzlich ein neuer Stoff. Beide Teilchensorten bleiben vorhanden.']],diagram:'mixture',memory:'Es zählt die Zahl der Teilchensorten – nicht, ob ein Teilchen aus mehreren Atomen besteht.',sources:['Reinstoffe und Gemische.pdf']
+},
+{
+ id:'homogen',group:'04 · Stoffgemische',icon:'👀',title:'Homogen oder heterogen?',sub:'Gleichmässig oder sichtbar unterschiedlich?',time:9,
+ skills:[['homo','Homogene Gemische'],['hetero','Heterogene Gemische'],['beispiele','Alltagsbeispiele einordnen']],
+ intro:'Bei einem <strong>homogenen</strong> Gemisch kann man die verschiedenen Bestandteile nicht getrennt erkennen. Bei einem <strong>heterogenen</strong> Gemisch gibt es unterscheidbare Bereiche.',
+ blocks:[['Homogen = einheitlich','Zuckerwasser, Luft, Messing: Das Gemisch erscheint überall gleich zusammengesetzt. Mit blossen Augen sieht man keine getrennten Bestandteile.'],['Heterogen = uneinheitlich','Öl und Wasser, Orangensaft mit Fruchtfleisch oder Granit: Hier lassen sich unterschiedliche Bestandteile oder Phasen unterscheiden.'],['Ein häufiger Irrtum','Ein <strong>homogenes Gemisch ist kein Reinstoff</strong>. Auch wenn es vollständig gleichmässig aussieht, enthält es verschiedene Teilchensorten.']],diagram:'mixture',memory:'Homo = gleichmässig. Hetero = unterscheidbare Phasen oder Bestandteile.',sources:['Reinstoffe und Gemische.pdf']
+},
+{
+ id:'gemischarten',group:'04 · Stoffgemische',icon:'🫧',title:'Die Namen der Gemischtypen',sub:'Suspension, Emulsion, Nebel & Co.',time:11,
+ skills:[['heterotyp','Heterogene Gemischtypen'],['homotyp','Homogene Gemischtypen'],['phasentyp','Stoffzustände der Bestandteile']],
+ intro:'Gemische werden je nach den Aggregatzuständen ihrer Bestandteile genauer benannt. Die Fachbegriffe sind beliebte Prüfungsfragen.',
+ blocks:[['Heterogene Gemische','<strong>Gemenge:</strong> fest/fest (Granit). <strong>Suspension:</strong> fest in flüssig (Orangensaft mit Fruchtfleisch). <strong>Emulsion:</strong> flüssig in flüssig (Milch). <strong>Rauch:</strong> fest in Gas. <strong>Nebel:</strong> flüssig in Gas. <strong>Schaum:</strong> Gas in Flüssigkeit.'],['Homogene Gemische','<strong>Legierung:</strong> fest/fest (Messing). <strong>Gasgemisch:</strong> Gas/Gas (Luft). <strong>Lösung:</strong> z. B. Zucker in Wasser, Alkohol in Wasser oder CO₂ in Mineralwasser.'],['Merke die Richtung','Nebel sind <em>Flüssigkeitströpfchen in einem Gas</em>, Schaum ist <em>Gas in einer Flüssigkeit</em>. Diese beiden werden leicht verwechselt.']],diagram:'mixture',memory:'Milch = Emulsion, Fruchtfleischsaft = Suspension, Luft = Gasgemisch, Messing = Legierung.',sources:['Reinstoffe und Gemische.pdf']
+},
+{
+ id:'typen',group:'05 · Atome',icon:'🔗',title:'Atome, Moleküle und Ionen',sub:'Drei Arten kleinster Teilchen',time:11,
+ skills:[['atom','Atome'],['molekuel','Moleküle'],['ion','Ionen']],
+ intro:'Die Unterlagen unterscheiden <strong>Atome</strong>, <strong>Moleküle</strong> und <strong>Ionen</strong>. Entscheidend ist, wie die Teilchen aufgebaut und ob sie elektrisch geladen sind.',
+ blocks:[['Atom','Ein Atom ist ein chemischer Grundbaustein. Beispiele aus dem Blatt: einzelne Neonatome, Kupferatome in festem Kupfer oder Quecksilberatome.'],['Molekül','Ein Molekül besteht aus <strong>mindestens zwei verbundenen Atomen</strong>. O₂ enthält zwei Sauerstoffatome; H₂O enthält zwei Wasserstoffatome und ein Sauerstoffatom. Moleküle sind insgesamt ungeladen.'],['Ion','Ein Ion ist ein elektrisch geladenes Teilchen. Ein <strong>Kation</strong> ist positiv (+), ein <strong>Anion</strong> negativ (−). Kaliumiodid enthält Ionen; die Ladungen ziehen sich an.']],diagram:'molecules',memory:'Atom = Einzelbaustein. Molekül = verbundene Atome. Ion = elektrisch geladen.',sources:['3 Typen kleinster Teilchen.pdf']
+},
+{
+ id:'atomaufbau',group:'05 · Atome',icon:'⚛️',title:'Protonen, Neutronen, Elektronen',sub:'Atomkern und Atomhülle',time:10,
+ skills:[['ladung','Ladung der Teilchen'],['ort','Ort im Atom'],['neutral','Neutrale Atome und Ionen']],
+ intro:'Im Atomkern sitzen <strong>Protonen (+)</strong> und <strong>Neutronen (neutral)</strong>. In der Atomhülle befinden sich <strong>Elektronen (−)</strong>.',
+ blocks:[['Kern und Hülle','Der Kern enthält fast die gesamte Masse des Atoms. Elektronen sind viel leichter und befinden sich in der Hülle. Die Zeichnung ist ein vereinfachtes Modell.'],['Elektrische Ladung','Bei einem <strong>neutralen Atom</strong> gilt: Zahl Protonen = Zahl Elektronen. Bei einem Ion ist die Elektronenzahl anders.'],['Warum wird ein Atom zum Ion?','Wenn es Elektronen <strong>abgibt</strong>, wird es positiv. Wenn es Elektronen <strong>aufnimmt</strong>, wird es negativ. Die Zahl der Protonen bleibt bei gewöhnlichen chemischen Vorgängen gleich.']],diagram:'atom',memory:'Proton +, Neutron 0, Elektron −. Positive Ionen haben zu wenige Elektronen.',sources:['Elementarteilchen.pdf','Elementarteilchen 2.pdf']
+},
+{
+ id:'pse',group:'05 · Atome',icon:'🗂️',title:'Das Periodensystem',sub:'Symbole, Ordnungszahl und Elemente',time:10,
+ skills:[['symbol','Elementsymbole'],['ordnung','Ordnungszahl'],['element','Element und Verbindung']],
+ intro:'Das Periodensystem (PSE) ordnet die chemischen Elemente. Jedes Element hat einen Namen, ein Symbol und eine <strong>Ordnungszahl</strong>.',
+ blocks:[['Das verrät die Ordnungszahl','Sie gibt die <strong>Zahl der Protonen</strong> im Kern an. Ein neutrales Atom hat ebenso viele Elektronen. Beispiel: Sauerstoff O, Ordnungszahl 8 → acht Protonen und acht Elektronen.'],['Symbole lesen','H = Wasserstoff, O = Sauerstoff, C = Kohlenstoff, N = Stickstoff, Fe = Eisen, Cu = Kupfer, Na = Natrium, Cl = Chlor, Mg = Magnesium. Gross- und Kleinschreibung sind wichtig!'],['Element oder Verbindung?','Ein Element besteht aus Atomen einer einzigen Atomsorte (z. B. O₂). Eine Verbindung enthält verschiedene Atomsorten, die chemisch verbunden sind (z. B. H₂O).']],diagram:'pse',memory:'Ordnungszahl = Protonenzahl. Bei neutralen Atomen auch Elektronenzahl.',sources:['PSE.pdf','Was ist Chemie_.pdf','Elementarteilchen.pdf']
+},
+{
+ id:'rechnen',group:'05 · Atome',icon:'🔢',title:'Atome und Ionen berechnen',sub:'Massenzahl, Isotope und Ionenladung',time:12,
+ skills:[['massenzahl','Neutronen berechnen'],['isotop','Isotope und Nuklidschreibweise'],['ionenrechnen','Elektronen bei Ionen']],
+ intro:'Die Tabellen in den Unterlagen üben genau das: Aus Elementsymbol, Massenzahl und Ladung die Anzahl von Protonen, Neutronen und Elektronen bestimmen.',
+ blocks:[['Formel 1: Neutronen','<strong>Massenzahl A = Protonen + Neutronen</strong>. Also: Neutronen = A − Ordnungszahl Z. Beispiel: ¹⁶O hat 8 Protonen und 8 Neutronen.'],['Formel 2: Elektronen','Neutrales Atom: e⁻ = Protonen. <strong>2+</strong> bedeutet: zwei Elektronen fehlen. <strong>1−</strong> bedeutet: ein Elektron zusätzlich. Beispiel: ²⁴Mg²⁺ → 12 Protonen, 12 Neutronen, <strong>10 Elektronen</strong>.'],['Isotope','¹²C und ¹³C sind beide Kohlenstoff: je 6 Protonen, aber einmal 6 und einmal 7 Neutronen. Sie heissen <strong>Isotope</strong>.'],['Übungsschritte','1. Element im PSE suchen → Z. 2. Protonen = Z. 3. Neutronen = A − Z. 4. Elektronen = Z − positive Ladung oder Z + Betrag der negativen Ladung.']],diagram:'atom',memory:'p = Z, n = A − Z, e = Z (neutral) oder an die Ionenladung anpassen.',sources:['Elementarteilchen.pdf','Elementarteilchen 2.pdf','PSE.pdf']
+}
+];
+
+const QUESTIONS=[];
+let qi=0;
+function Q(topic,skill,prompt,correct,wrong,why){
+ const choices=[correct,...wrong].filter((x,i,a)=>a.indexOf(x)===i);
+ if(choices.length!==4) throw Error('Vier eindeutige Antwortmöglichkeiten nötig: '+topic+'/'+prompt+' '+JSON.stringify(choices));
+ QUESTIONS.push({id:'q'+(++qi),topic,skill,prompt,correct,choices,why});
+}
+function many(t,s,rows){rows.forEach(r=>Q(t,s,...r));}
+// Grundlagen. Jede Frage erhält eine verständliche Rückmeldung.
+many('chemie','taetigkeit',[
+ ['Was gehört zur Arbeit von Chemiker:innen?','Experimente durchführen',['Nur Sterne benennen','Nur Bücher verkaufen','Nur Häuser bauen'],'Experimente helfen dabei, Aussagen über Stoffe zu prüfen.'],
+ ['Wozu entwickelt man ein chemisches Modell?','Um etwas schwer Beobachtbares vereinfacht darzustellen',['Um alle Experimente überflüssig zu machen','Um Stoffe zu erfinden','Um die Wirklichkeit exakt zu fotografieren'],'Modelle sind vereinfachte Vorstellungen, nicht perfekte Kopien.'],
+ ['Womit beschreibt man chemische Reaktionen häufig?','Mit Formeln und Reaktionsgleichungen',['Mit Stadtplänen','Mit Wetterkarten allein','Nur mit Farben'],'Die Unterlagen zeigen Teilchenmodelle, Formeln und Reaktionsgleichungen.'],
+ ['Welche Tätigkeit ist ein Beispiel für chemische Forschung?','Stoffeigenschaften im Labor untersuchen',['Wolken fotografieren ohne Auswertung','Gitarre stimmen','Ein Fenster putzen'],'Chemie untersucht Stoffe, ihre Eigenschaften und ihre Veränderungen.'],
+ ['Warum stellt man vor einem Experiment eine Frage?','Damit man gezielt etwas untersuchen kann',['Damit die Lösung schon feststeht','Weil Modelle verboten sind','Damit keine Beobachtung nötig ist'],'Experimente helfen, Fragen mit Beobachtungen zu beantworten.'],
+ ['Was ist eine Beobachtung?','Das, was man tatsächlich wahrnimmt oder misst',['Eine willkürlich erfundene Erklärung','Immer eine chemische Reaktion','Ein Modell des Atoms'],'Beobachtungen und Erklärungen sind nicht dasselbe.']
+]);
+many('chemie','stoffe',[
+ ['Was ist eine Stoffeigenschaft?','Der Schmelzpunkt',['Der Name der Schülerin','Die Länge des Heftes','Die Sitzordnung'],'Der Schmelzpunkt ist eine Eigenschaft eines Stoffes.'],
+ ['Welche Auswahl enthält nur Beispiele für Stoffe?','Wasser, Sauerstoff, Kupfer',['Rund, links, schnell','Montag, Dienstag, Mittwoch','Rot, laut, weit'],'Wasser, Sauerstoff und Kupfer sind Stoffe.'],
+ ['Welche Eigenschaft kann beim Erkennen eines Stoffes helfen?','Die Dichte',['Die Lieblingsfarbe einer Person','Der Preis des Heftes','Das Datum der Prüfung'],'Die Dichte ist eine Stoffeigenschaft.'],
+ ['Womit beschäftigt sich Chemie auch?','Mit dem inneren Aufbau von Stoffen',['Nur mit dem Wetter','Nur mit dem Sonnensystem','Nur mit Sprache'],'Der Aufbau von Stoffen gehört ausdrücklich zu den Themen.'],
+ ['Welche Eigenschaft gehört zur Stoffebene?','Geruch einer Flüssigkeit',['Die Farbe einer gezeichneten Elektronenbahn','Die Nummer eines Modells','Ein willkürliches Symbol'],'Geruch ist am Stoff beobachtbar.'],
+ ['Worauf bezieht sich „Stoff“ in der Chemie?','Auf das Material, aus dem etwas besteht',['Nur auf Kleiderstoff','Nur auf Gegenstände aus Metall','Auf die Form eines Gefässes'],'Stoff ist der chemische Begriff für ein Material.']
+]);
+many('chemie','reaktion',[
+ ['Wie nennt man Stoffe vor einer chemischen Reaktion?','Edukte',['Produkte','Elektronen','Isotope'],'Ausgangsstoffe heissen Edukte.'],
+ ['Wie nennt man Stoffe nach einer chemischen Reaktion?','Produkte',['Protonen','Edukte','Modelle'],'Die bei der Reaktion entstehenden Stoffe heissen Produkte.'],
+ ['Was ist das Merkmal einer chemischen Reaktion?','Es entstehen neue Stoffe mit neuen Eigenschaften',['Der Stoff ändert nur die Form','Ein Gefäss wird gedreht','Ein Stoff wird nur geschnitten'],'Eine Stoffumwandlung ist das entscheidende Kennzeichen.'],
+ ['Welche Aussage zu Reaktionen stimmt?','Aus Edukten entstehen Produkte',['Alle Edukte sind Ionen','Alle Reaktionen erzeugen Wasser','Produkte existieren immer schon unverändert'],'Die Reaktionsgleichung trennt Ausgangs- und Endstoffe.'],
+ ['Wofür steht der Pfeil in einer Reaktionsgleichung?','Für „reagiert zu“',['Für „ist genau gleich wie“','Für „kälter als“','Für „hat mehr Masse als“'],'Zum Beispiel: Wasserstoff + Sauerstoff → Wasser.'],
+ ['Welche Beobachtung kann auf eine Reaktion hinweisen?','Es entsteht ein Gas',['Ein Becher wird verschoben','Ein Eiswürfel bleibt Eis','Ein Stein wird gewogen'],'Gasbildung kann ein Hinweis auf einen neuen Stoff sein.']
+]);
+
+many('wechsel','phys',[
+ ['Eis schmilzt. Was ist das?','Physikalischer Vorgang',['Chemischer Vorgang','Kernreaktion','Stoffneubildung'],'Es bleibt Wasser (H₂O); nur der Zustand wechselt.'],
+ ['Wasser verdunstet von einem Teller.','Physikalischer Vorgang',['Chemischer Vorgang','Bildung eines neuen Elements','Chemische Verbrennung'],'Das Wasser wird gasförmig, bleibt aber H₂O.'],
+ ['Ein Metallstück wird gebogen.','Physikalischer Vorgang',['Chemischer Vorgang','Neue Verbindung entsteht','Neuer Stoff entsteht'],'Formänderung allein erzeugt keinen neuen Stoff.'],
+ ['Salz löst sich in Wasser.','Physikalischer Vorgang',['Chemischer Vorgang','Atome werden erzeugt','Eine Kernspaltung'],'Beim Lösen entstehen keine neuen chemischen Stoffarten.'],
+ ['Wasserdampf kondensiert am Spiegel.','Physikalischer Vorgang',['Chemischer Vorgang','Neue Atomsorte','Chemische Verbrennung'],'Wasserdampf und flüssiges Wasser sind derselbe Stoff.'],
+ ['Ein Magnet trennt Eisenspäne von Kakaopulver.','Physikalische Trennung',['Chemische Reaktion','Bildung einer Verbindung','Entstehung von Protonen'],'Durch Trennen wird kein neuer Stoff hergestellt.']
+]);
+many('wechsel','chem',[
+ ['Essig reagiert mit Backpulver; Gas entsteht.','Chemischer Vorgang',['Nur ein Zustandswechsel','Nur eine Verformung','Nur eine Sortierung'],'Es bildet sich unter anderem Kohlendioxid; ein neuer Stoff entsteht.'],
+ ['Holz verbrennt zu Asche und Gasen.','Chemischer Vorgang',['Nur Schmelzen','Nur Verdunsten','Nur Zerbrechen'],'Verbrennung erzeugt neue Stoffe.'],
+ ['Eisen rostet an feuchter Luft.','Chemischer Vorgang',['Nur eine Zustandsänderung','Nur physikalisches Mischen','Nur ein Grössenwechsel'],'Beim Rosten entstehen Eisenoxide.'],
+ ['Ein Kuchen backt und neue Stoffeigenschaften entstehen.','Chemischer Vorgang',['Nur ein Zustandswechsel','Nur Abkühlen','Nur Zerschneiden'],'Backen umfasst chemische Veränderungen.'],
+ ['Eine Kerzenflamme verbrennt Wachs.','Chemischer Vorgang',['Nur eine Verformung','Nur Erstarren','Nur ein Gemisch wird getrennt'],'Beim Brennen reagiert Wachs mit Sauerstoff.'],
+ ['Milch wird sauer und es entstehen neue Stoffe.','Chemischer Vorgang',['Nur Verdunsten','Nur ein Modellwechsel','Nur Schneiden'],'Die chemischen Veränderungen verändern die Stoffzusammensetzung.']
+]);
+many('wechsel','abgrenz',[
+ ['Welche Frage hilft am besten beim Entscheiden?','Sind neue Stoffe entstanden?',['Ist der Stoff sichtbar?','Ist der Stoff flüssig?','Steht ein Glas daneben?'],'Stoffumwandlung ist das Kriterium.'],
+ ['Ein Stoff wird nur kleiner geschnitten. Warum physikalisch?','Die Stoffart bleibt gleich',['Weil er wärmer wird','Weil er ein Gas wird','Weil Protonen verschwinden'],'Der Stoff ist vor und nach dem Schneiden derselbe.'],
+ ['Eine Flüssigkeit wechselt die Farbe. Was kannst du sicher sagen?','Es könnte eine Reaktion sein; weitere Hinweise sind nötig',['Es ist immer chemisch','Es ist immer physikalisch','Es ist sicher eine Kernreaktion'],'Farbe allein beweist keine chemische Reaktion.'],
+ ['Warum ist Schmelzen keine chemische Reaktion?','Es entstehen keine neuen Stoffe',['Es sind keine Teilchen vorhanden','Die Masse verschwindet','Alle Elektronen werden abgegeben'],'Der Stoff bleibt derselbe.'],
+ ['Wasserstoff und Sauerstoff reagieren zu Wasser. Warum chemisch?','Wasser hat neue Eigenschaften und ist ein neuer Stoff',['Weil das Gas kalt ist','Weil das Gefäss rund ist','Weil Wasser flüssig sein kann'],'Aus den Edukten entsteht der neue Stoff Wasser.'],
+ ['Welche Begründung passt zu einer physikalischen Trennung?','Die Bestandteile sind danach noch dieselben Stoffe',['Jede Trennung erzeugt Ionen','Es entstehen neue Atomsorten','Ein Teil der Stoffe wird zu Energie'],'Beim Trennen bleiben Stoffarten erhalten.']
+]);
+
+many('modelle','modell',[
+ ['Was ist ein Modell in der Chemie?','Eine vereinfachte Darstellung der Wirklichkeit',['Ein absolut genaues Foto','Eine neue chemische Verbindung','Ein Beweis ohne Experiment'],'Ein Modell erklärt ausgewählte Aspekte der Wirklichkeit.'],
+ ['Was ist eine Grenze eines Modells?','Es zeigt nicht jedes Detail',['Es darf nie benutzt werden','Es enthält automatisch alle Stoffe','Es ist immer falsch'],'Ein Modell vereinfacht bewusst.'],
+ ['Warum benutzt man ein Teilchenmodell?','Weil man die kleinsten Teilchen nicht direkt sehen kann',['Weil Stoffe keine Teilchen haben','Weil Bilder besser als alle Beobachtungen sind','Weil es keine Experimente gibt'],'Das Modell macht Unsichtbares vorstellbar.'],
+ ['Eine Kugel stellt ein Atom dar. Bedeutet dies, dass es wirklich eine farbige Kugel ist?','Nein, das ist eine Modellvorstellung',['Ja, Atome haben immer diese Farbe','Ja, Atome bestehen aus Plastik','Nein, Atome existieren nicht'],'Modelle verwenden Symbole und Vereinfachungen.'],
+ ['Wie prüft man, ob ein Modell hilfreich ist?','Ob es Beobachtungen sinnvoll erklären kann',['Ob es besonders bunt ist','Ob es genau 1000 Zeichen hat','Ob es nie verändert werden muss'],'Ein gutes Modell erklärt und sagt Beobachtungen voraus.'],
+ ['Weshalb zeichnet man Wasserteilchen als Kreise?','Weil einfache Formen die Darstellung erleichtern',['Weil Wassermoleküle perfekte Kreise sind','Weil Kreise die echte Molekülfarbe zeigen','Weil Wasser keine Atome enthält'],'Kreise sind Symbole für die Teilchen.']
+]);
+many('modelle','ebene',[
+ ['Du beobachtest eine Flüssigkeit im Glas. Auf welcher Ebene bist du?','Stoffebene',['Modellebene','Kernebene','Periodenebene'],'Du beschreibst einen sichtbaren Stoff.'],
+ ['Du zeichnest blaue Punkte als Wasserteilchen.','Modellebene',['Stoffebene','Laborebene','Dichteebene'],'Die Punkte sind eine Teilchenvorstellung.'],
+ ['Was gehört zur Stoffebene?','Wasser im Messzylinder ablesen',['Moleküle als Kugeln zeichnen','Elektronenbahnen skizzieren','Atome als Buchstaben symbolisieren'],'Das Beobachten und Messen erfolgt auf der Stoffebene.'],
+ ['„Teilchen setzen sich in Zwischenräume.“ – Welche Ebene?','Modellebene',['Stoffebene','Gefässform','Messskala'],'Dies ist eine Erklärung mit Teilchen.'],
+ ['Du misst die Temperatur eines Eiswürfels.','Stoffebene',['Modellebene','Nuklidebene','Atomsortenebene'],'Die Messung bezieht sich auf das beobachtbare Eis.'],
+ ['Was verbindet Stoff- und Modellebene?','Das Modell soll Beobachtungen erklären',['Die Ebenen sind grundsätzlich identisch','Die Beobachtung ist überflüssig','Eine neue Atomsorte'],'Man beobachtet auf Stoffebene und erklärt auf Modellebene.']
+]);
+
+many('teilchen','grundsatz',[
+ ['Woraus besteht nach dem Teilchenmodell jeder Stoff?','Aus kleinsten Teilchen',['Nur aus Luft','Nur aus Flüssigkeit','Aus sichtbaren Schichten'],'Alle Stoffe bestehen aus kleinsten Teilchen.'],
+ ['Wie sind die Teilchen eines Reinstoffs im Schulmodell?','Unter sich gleichartig',['Völlig unterschiedlich','Ohne Masse','Immer elektrisch geladen'],'Ein Reinstoff besteht aus einer Sorte kleinster Teilchen.'],
+ ['Haben verschiedene Stoffe immer dieselbe Teilchensorte?','Nein',['Ja','Nur bei Wasser','Nur bei Gasen'],'Unterschiedliche Stoffe besitzen unterschiedliche kleinste Teilchen.'],
+ ['Wie gross sind die kleinsten Teilchen im Vergleich zu einem Wassertropfen?','Unvorstellbar klein',['Genauso gross','Meist grösser','Mit blossem Auge immer einzeln sichtbar'],'Ein Tropfen besteht aus extrem vielen Teilchen.'],
+ ['Stimmt es, dass ein einziges Wasserteilchen flüssig ist?','Nein, „flüssig“ beschreibt viele Teilchen zusammen',['Ja, jedes Teilchen ist flüssig','Nur im Winter','Nur bei 100 °C'],'Aggregatzustände sind Eigenschaften von Teilchenverbänden.'],
+ ['Was zeigt eine chemische Kugelzeichnung meist?','Eine vereinfachte Teilchenvorstellung',['Ein echtes Foto','Die tatsächliche Farbe der Atome','Eine Messung der Lautstärke'],'Die Farben und Formen sind modellhaft.']
+]);
+many('teilchen','zwischen',[
+ ['Warum ergeben 50 ml Wasser und 50 ml Alkohol manchmal weniger als 100 ml?','Die Teilchen können sich dichter anordnen',['Einige Atome verschwinden','Das Glas zieht Wasser an','Die Messskala verändert die Chemie'],'Beim Mischen können Zwischenräume besser genutzt werden.'],
+ ['Was befindet sich zwischen Teilchen?','Zwischenräume',['Immer ein weiterer Feststoff','Immer kleine Luftblasen','Nur Elektronen'],'Das Teilchenmodell nimmt Zwischenräume an.'],
+ ['Mischen sich zwei Flüssigkeiten, verschwinden Teilchen?','Nein, die Teilchen bleiben erhalten',['Ja, die Hälfte verschwindet','Ja, alle Teilchen werden zu Licht','Nur wenn der Becher klein ist'],'Die Änderung des Gesamtvolumens ist keine Vernichtung von Teilchen.'],
+ ['Weshalb kann Luft zusammengedrückt werden?','Zwischen Gasteilchen ist viel Platz',['Gasteilchen sind völlig starr','Luft hat keine Teilchen','Die Luft wird zum neuen Element'],'Gasteilchen haben grosse Abstände.'],
+ ['Warum kann man Wasser viel schwerer zusammendrücken als Luft?','Wasserteilchen liegen deutlich dichter beieinander',['Wasser enthält keine Atome','Wasser ist immer fest','Die Teilchen besitzen keine Zwischenräume'],'In Flüssigkeiten gibt es viel weniger freien Raum.'],
+ ['Was erklärt die Durchmischung zweier Stoffe im Modell?','Unterschiedliche Teilchen verteilen sich ineinander',['Teilchen ändern plötzlich ihre Farbe','Teilchen werden zu Protonen','Der Behälter verdoppelt seine Grösse'],'Mischen bedeutet eine neue Anordnung unterschiedlicher Teilchensorten.']
+]);
+many('teilchen','vorstell',[
+ ['In einer Teilchenzeichnung sind rote und blaue Kugeln bunt gemischt. Was bedeutet das meistens?','Zwei Teilchensorten sind durchmischt',['Es gibt nur eine Atomsorte','Die Stoffe sind getrennt','Es ist zwingend eine chemische Reaktion'],'Unterschiedliche Farben symbolisieren verschiedene Teilchensorten.'],
+ ['Alle Punkte im Gefäss sind gleich gezeichnet. Welche Deutung passt?','Es könnte ein Reinstoff sein',['Es ist sicher ein heterogenes Gemisch','Es ist sicher eine Reaktion','Es muss Rauch sein'],'Eine einzige Teilchensorte passt zu einem Reinstoff.'],
+ ['Rote Teilchen sammeln sich oben, blaue unten. Was zeigt das?','Zwei getrennte Bereiche',['Vollständige homogene Durchmischung','Ein neutrales Atom','Eine Gasreaktion'],'Das Modell zeigt getrennte Bereiche, nicht eine gleichmässige Verteilung.'],
+ ['Was ist bei einem Teilchenbild besonders wichtig?','Art, Zahl und Anordnung der Teilchen',['Die Schönheit der Farbe','Der Name des Stifts','Die Marke des Papiers'],'Das Bild hilft beim Erklären des Stoffes.'],
+ ['Was deutet ein grosser Abstand zwischen vielen Teilchen an?','Einen gasförmigen Zustand',['Einen dichten Feststoff','Immer eine Legierung','Immer einen Atomkern'],'Gasteilchen sind vergleichsweise weit auseinander.'],
+ ['Viele dicht liegende Teilchen ohne festes Gitter passen am besten zu …','einer Flüssigkeit',['einem Gas','einem einzelnen Atom','einem Vakuum'],'Flüssigkeiten sind dicht, aber ungeordnet beweglich.']
+]);
+
+many('zustaende','fest',[
+ ['Wie bewegen sich Teilchen in einem Feststoff?','Sie schwingen um feste Plätze',['Sie fliegen völlig frei umher','Sie bewegen sich überhaupt nicht','Sie verlassen ständig den Körper'],'Teilchen im Feststoff schwingen um ihre Plätze.'],
+ ['Welche Eigenschaft ist typisch für feste Stoffe?','Eigene Form',['Füllt jeden verfügbaren Raum','Ist besonders leicht komprimierbar','Besitzt keine Teilchen'],'Ein Feststoff behält ungefähr seine Form.'],
+ ['Wie liegen die Teilchen in einem typischen festen Kristall?','Dicht und geordnet',['Weit voneinander entfernt','Ohne jeden Kontakt','Nur am Gefässrand'],'Ein Kristall hat meist eine geordnete Teilchenstruktur.'],
+ ['Kann man einen festen Stoff leicht zusammendrücken?','Meist nein',['Immer sehr leicht','Nur wenn er farbig ist','Nur im Dunkeln'],'Die Teilchen liegen dicht beisammen.'],
+ ['Welche Antwort passt zu Eis?','Festes Wasser',['Gasförmiges Wasser','Ein neues chemisches Element','Ein Gemisch aus H und O'],'Eis besteht aus Wasserteilchen und ist fest.'],
+ ['Ist „fest“ eine Eigenschaft eines einzelnen Atoms?','Nein, des Teilchenverbands',['Ja, jedes Atom ist von sich aus fest','Nur für Neon','Nur wenn ein Elektron fehlt'],'Aggregatzustände beschreiben viele Teilchen zusammen.']
+]);
+many('zustaende','fluessig',[
+ ['Warum passt sich Wasser der Form des Glases an?','Die Teilchen können sich gegeneinander verschieben',['Die Atome verschwinden','Es gibt keine Anziehung','Wasser ist ein Gas'],'Flüssigkeitsteilchen sind beweglich.'],
+ ['Wie weit sind die Teilchen in Flüssigkeiten im Vergleich zum Gas meist auseinander?','Viel näher beieinander',['Viel weiter auseinander','Gleich weit wie im Weltall','Sie berühren sich niemals'],'In Flüssigkeiten liegen die Teilchen relativ dicht.'],
+ ['Eine Flüssigkeit …','behält ungefähr ihr Volumen, aber nicht ihre Form',['hat immer eine feste eigene Form','füllt jeden Raum vollständig','besteht nie aus Molekülen'],'Flüssigkeiten nehmen die Gefässform an.'],
+ ['Was ist flüssiges Wasser?','H₂O in flüssigem Zustand',['Eine neue Atomsorte','Ein Gasgemisch','Ein Ionengitter aus H und O'],'Die Teilchen bleiben Wasserteilchen.'],
+ ['Welches Teilchenbild zeigt eine Flüssigkeit?','Dicht und ungeordnet beweglich',['Weit voneinander entfernt und frei','Nur ein einziges Teilchen','Ein vollständig starres Gitter'],'Flüssigkeiten sind dicht, aber ihre Teilchen sind verschiebbar.'],
+ ['Weshalb kann Wasser fliessen?','Die Teilchen wechseln ihre Nachbarn',['Es besitzt überhaupt keine Teilchen','Alle Protonen gehen verloren','Sein Kern wird flüssig'],'Die Teilchen sind gegeneinander beweglich.']
+]);
+many('zustaende','gas',[
+ ['Warum füllt ein Gas das ganze Gefäss?','Seine Teilchen bewegen sich frei und verteilen sich',['Es hat eine feste Eigenform','Die Teilchen bleiben alle am Boden','Es besteht aus keinen Teilchen'],'Gasteilchen bewegen sich durch den Raum.'],
+ ['Warum ist Gas oft gut zusammendrückbar?','Grosse Zwischenräume zwischen den Teilchen',['Weil es keine Masse hat','Weil die Atome zerbrechen','Weil es immer kalt ist'],'Zwischen den Gasteilchen ist viel Platz.'],
+ ['Was passiert mit einem Gas ohne dichtes Gefäss?','Es breitet sich aus',['Es bildet immer einen Würfel','Es wird automatisch fest','Es verliert alle Protonen'],'Gasteilchen können frei ausströmen.'],
+ ['Welches Teilchenbild passt zu einem Gas?','Viel Abstand, Teilchen überall verteilt',['Dichtes, starres Gitter','Teilchen nur am Boden und dicht','Eine einzige grosse Kugel'],'Gase haben grosse Teilchenabstände.'],
+ ['Was sorgt bei der Dosen-Demonstration für das Zusammendrücken?','Der höhere Luftdruck von aussen',['Die Farbe der Dose','Ein Magnet im Wasser','Die Atome der Dose verschwinden'],'Kondensation senkt den Druck innen, aussen drückt die Luft.'],
+ ['Was ist Wasserdampf?','Gasförmiges Wasser (H₂O)',['Ein neues Element','Flüssiges Wasser','Ein Ion'],'Der Stoff bleibt Wasser.']
+]);
+
+const TRANS=[
+ ['waermer','fest → flüssig','Schmelzen','Erstarren','Kondensieren','Resublimieren','Eis wird zu flüssigem Wasser.'],
+ ['waermer','flüssig → gasförmig','Verdampfen','Erstarren','Schmelzen','Resublimieren','Wasser wird zu Wasserdampf.'],
+ ['waermer','fest → gasförmig','Sublimieren','Schmelzen','Kondensieren','Erstarren','Trockeneis geht unter Normaldruck direkt ins Gas über.'],
+ ['kaelter','flüssig → fest','Erstarren','Schmelzen','Verdampfen','Sublimieren','Flüssiges Wasser gefriert zu Eis.'],
+ ['kaelter','gasförmig → flüssig','Kondensieren','Resublimieren','Schmelzen','Sublimieren','Wasserdampf bildet Tropfen.'],
+ ['kaelter','gasförmig → fest','Resublimieren','Verdampfen','Schmelzen','Erstarren','Reif kann direkt aus Wasserdampf entstehen.']
+];
+TRANS.forEach(([skill,path,correct,a,b,c,why])=>{
+ Q('uebergaenge',skill,`Wie heisst der Übergang ${path}?`,correct,[a,b,c],why);
+ Q('uebergaenge',skill,`Bei welchem Übergang geht ein Stoff von ${path.replace(' → ',' nach ')} über?`,correct,[a,b,c],why);
+});
+many('uebergaenge','waermer',[
+ ['Beim Verdunsten …','verlassen Teilchen die Flüssigkeitsoberfläche',['schmilzt ein Feststoff','entsteht zwingend ein neuer Stoff','wird Gas zu Eis'],'Verdunstung kann schon unter dem Siedepunkt stattfinden.'],
+ ['Beim Schmelzen von Eis bleiben die Teilchen …','Wasserteilchen',['Kupferatome','neue Elemente','Kohlenstoffionen'],'Nur die Anordnung ändert sich.'],
+ ['Welcher Übergang kommt ohne flüssigen Zwischenzustand aus?','Sublimieren',['Schmelzen','Kondensieren','Erstarren'],'Sublimieren ist fest → gasförmig.']
+]);
+many('uebergaenge','kaelter',[
+ ['Wassertropfen am kalten Glas entstehen durch …','Kondensieren',['Sublimieren','Schmelzen','Verdunsten'],'Wasserdampf wird flüssig.'],
+ ['Wasser wird im Gefrierfach zu Eis.','Erstarren',['Verdampfen','Kondensieren','Sublimieren'],'Flüssig → fest heisst Erstarren.'],
+ ['Reif an einer kalten Oberfläche kann durch … entstehen.','Resublimieren',['Schmelzen','Verdampfen','Sieden'],'Wasserdampf kann direkt fest werden.']
+]);
+many('uebergaenge','direkt',[
+ ['Was ist der Unterschied zwischen Sieden und Verdunsten?','Verdunsten findet an der Oberfläche statt, Sieden mit Dampfblasen im Inneren',['Verdunsten ist immer chemisch','Sieden ist immer unter 0 °C','Es gibt keinen Unterschied'],'Verdunsten kann unter dem Siedepunkt stattfinden.'],
+ ['Was macht Trockeneis bei Normaldruck?','Es sublimiert',['Es schmilzt immer erst','Es reagiert zu Wasser','Es resublimiert beim Erwärmen'],'Trockeneis kann direkt gasförmig werden.'],
+ ['Ein Gas wird ohne flüssige Phase fest. Was ist das?','Resublimieren',['Sublimieren','Verdampfen','Schmelzen'],'Das ist gasförmig → fest.'],
+ ['Welcher Vorgang ist physikalisch?','Wasser kondensiert',['Eisen rostet','Papier verbrennt','Essig reagiert mit Backpulver'],'Kondensieren ändert nur den Aggregatzustand.'],
+ ['Wodurch unterscheiden sich die Namen „sublimieren“ und „resublimieren“?','Sie beschreiben entgegengesetzte Übergänge',['Sie sind genau dasselbe','Beide meinen flüssig → gasförmig','Beide sind chemische Reaktionen'],'Sublimieren: fest → gasförmig. Resublimieren: gasförmig → fest.'],
+ ['Warum ist Verdampfen physikalisch?','Der Stoff bleibt derselbe',['Es entstehen immer neue Atome','Weil die Masse 0 wird','Weil die Farbe sich nicht ändern darf'],'H₂O bleibt H₂O.']
+]);
+
+many('bewegung','temperatur',[
+ ['Was misst die Temperatur im Teilchenmodell?','Die durchschnittliche Bewegungsenergie der Teilchen',['Die Zahl der Protonen','Die Teilchenfarbe','Die Anzahl der Molekülarten'],'Die Temperatur hängt mit der mittleren Bewegungsenergie zusammen.'],
+ ['Was passiert beim Erwärmen meist mit der Teilchenbewegung?','Sie wird im Durchschnitt heftiger',['Sie hört auf','Alle Teilchen werden gleich schnell','Alle Elektronen verschwinden'],'Die durchschnittliche Bewegungsenergie steigt.'],
+ ['Bewegen sich alle Teilchen eines Stoffs immer gleich schnell?','Nein',['Ja, immer','Nur in einem Gas','Nur bei 0 °C'],'Es geht um einen Durchschnitt, nicht um identische Geschwindigkeiten.'],
+ ['Was passiert beim Abkühlen mit der mittleren Bewegungsenergie?','Sie nimmt ab',['Sie wird unendlich','Sie steigt immer','Sie bleibt bei allen Temperaturen gleich'],'Die Teilchen bewegen oder schwingen im Durchschnitt weniger heftig.'],
+ ['Weshalb verdunstet Wasser auch unter 100 °C?','Einige Oberflächenteilchen haben genug Energie zum Entkommen',['Bei 20 °C siedet alles Wasser','Es gibt keine Anziehung','Die Teilchen werden chemisch umgewandelt'],'Einzelne Teilchen haben unterschiedlich viel Bewegungsenergie.'],
+ ['Was ist bei einem wärmeren Gas im Mittel grösser?','Die Bewegungsenergie der Teilchen',['Die Protonenzahl jedes Atoms','Die Farbe aller Moleküle','Die Ordnungszahl'],'Bei Erwärmung steigt durchschnittlich die Bewegungsenergie.']
+]);
+many('bewegung','druck',[
+ ['Was erzeugt den Druck eines Gases?','Stösse der Teilchen gegen die Gefässwand',['Licht im Gefäss','Die Teilchenfarbe','Die Protonen im Gefässboden'],'Viele Teilchenstösse erzeugen Gasdruck.'],
+ ['Ein verschlossenes starres Gefäss mit Gas wird erwärmt. Was geschieht typischerweise?','Der Druck steigt',['Der Druck wird immer null','Das Gas verschwindet','Es entsteht automatisch Wasser'],'Schnellere Teilchenstösse erhöhen bei gleichem Volumen den Druck.'],
+ ['Was passiert, wenn in einen Reifen mehr Gas gepumpt wird?','Mehr Teilchenstösse erhöhen meist den Druck',['Die Teilchenzahl fällt','Der Reifen wird sofort zu Eis','Alle Teilchen werden flüssig'],'Mehr Gasteilchen verursachen mehr Stösse.'],
+ ['Was ist bei Gasdruck wichtig?','Bewegliche Gasteilchen',['Nur die Glasfarbe','Die Zahl der Neutronen im Wasser','Nur das Gewicht des Ventils'],'Druck entsteht durch die Bewegung und Stösse der Teilchen.'],
+ ['Warum kann eine Dose bei sinkendem Innendruck eingedrückt werden?','Aussendruck ist grösser als Innendruck',['Weil das Metall chemisch verschwindet','Weil das Wasser zu Eisen wird','Weil Gas nie Druck ausübt'],'Die Druckdifferenz führt zur Verformung.'],
+ ['Wenn Gas bei gleichem Volumen abkühlt, sinkt meist …','der Druck',['die Protonenzahl','die Masse jedes Elektrons','die Ordnungszahl'],'Weniger heftige Stösse bedeuten geringeren Druck.']
+]);
+many('bewegung','null',[
+ ['Wie viel Grad Celsius sind 0 Kelvin?','−273,15 °C',['0 °C','100 °C','−100 °C'],'Der absolute Nullpunkt liegt bei −273,15 °C.'],
+ ['Wie heisst die Temperaturskala mit dem absoluten Nullpunkt bei 0?','Kelvin',['Dezibel','Kilogramm','Liter'],'Kelvin beginnt am absoluten Nullpunkt.'],
+ ['Was bedeutet der absolute Nullpunkt?','Die untere Grenze der thermodynamischen Temperatur',['Der Schmelzpunkt von Eis','Die höchste mögliche Temperatur','Immer den Gefrierpunkt von Wasser'],'0 K ist die untere Temperaturgrenze.'],
+ ['Welche Temperatur ist wärmer?','0 °C',['0 K','−273,15 °C','−300 °C'],'0 °C entspricht 273,15 K und liegt über dem absoluten Nullpunkt.'],
+ ['Ist −273,15 °C gleich 0 K?','Ja',['Nein, es ist 100 K','Nein, es ist 273 K','Nein, es ist 1000 K'],'0 K und −273,15 °C bezeichnen dieselbe Temperatur.'],
+ ['Warum wird 0 K in den Unterlagen erwähnt?','Beim Abkühlen sinkt die mittlere Bewegungsenergie',['Weil Wasser dort siedet','Weil dort alle Gase brennen','Weil dort alles Wasser fest sein muss'],'Die Temperatur ist mit Teilchenbewegung verknüpft.']
+]);
+
+many('kurve','anstieg',[
+ ['Eine Erwärmungskurve steigt schräg an. Das bedeutet …','Die Temperatur steigt',['Die Temperatur bleibt konstant','Der Stoff muss sublimieren','Die Teilchenzahl verdoppelt sich'],'Bei einem schrägen Anstieg steigt die Temperatur.'],
+ ['Eis wird von −30 °C auf −10 °C erwärmt. Was passiert?','Das Eis bleibt fest, seine Temperatur steigt',['Es siedet','Es wird sofort Gas','Es ist immer flüssig'],'Unter 0 °C bleibt Wasser bei Normaldruck fest.'],
+ ['Flüssiges Wasser wird von 20 °C auf 80 °C erwärmt.','Die Temperatur steigt ohne Zustandswechsel',['Es erstarrt','Es sublimiert','Es muss schon sieden'],'Zwischen 0 °C und 100 °C ist Wasser bei Normaldruck flüssig.'],
+ ['Was steigt auf einer schrägen Heizkurve mit der Temperatur?','Die mittlere Bewegungsenergie',['Die Protonenzahl','Die Atomsortenzahl','Die Massenzahl aller Atome'],'Die Bewegungsenergie ändert sich mit der Temperatur.'],
+ ['Nach dem vollständigen Schmelzen eines Eiswürfels wird weiter geheizt.','Die Wassertemperatur steigt wieder',['Die Temperatur bleibt für immer 0 °C','Das Wasser wird sofort fest','Die Neutronen werden weniger'],'Nach dem Schmelz-Plateau erwärmt sich das flüssige Wasser.'],
+ ['Nach vollständigem Sieden wird dem Wasserdampf weiter Energie zugeführt.','Die Dampftemperatur kann steigen',['Alle Moleküle verschwinden','Das Gas wird zu Eis','Die Temperatur kann nie mehr steigen'],'Nach dem Siede-Plateau kann der Dampf weiter erwärmt werden.']
+]);
+many('kurve','plateau',[
+ ['Was bedeutet ein waagrechter Abschnitt beim Schmelzen?','Energie wird für den Zustandswechsel genutzt',['Es wird keine Energie zugeführt','Der Stoff wird zum neuen Element','Die Masse steigt sprunghaft'],'Die Temperatur bleibt trotz Energiezufuhr konstant.'],
+ ['Beim Schmelzen von reinem Eis bei Normaldruck bleibt die Temperatur …','bei 0 °C, bis alles geschmolzen ist',['bei −273 °C','bei 100 °C','immer bei 20 °C'],'Während des Schmelzens liegt ein Plateau bei ungefähr 0 °C.'],
+ ['Was geschieht mit der zugeführten Energie während eines Siede-Plateaus?','Sie unterstützt die Trennung der Teilchen',['Sie verschwindet einfach','Sie erzeugt Protonen','Sie kann nicht aufgenommen werden'],'Die Energie geht in den Zustandswechsel.'],
+ ['Warum bleibt die Temperatur beim Sieden konstant?','Die Energie wird für die Umwandlung in Gas gebraucht',['Der Herd arbeitet nicht mehr','Alle Teilchen stoppen','Das Wasser hört auf, Energie aufzunehmen'],'Der Zustandswechsel benötigt Energie.'],
+ ['Ist ein waagrechtes Plateau in einer Heizkurve immer eine neue chemische Substanz?','Nein, ein physikalischer Zustandswechsel',['Ja, immer','Ja, es entstehen Atome','Ja, der Stoff wechselt sein Element'],'Schmelzen und Sieden sind physikalisch.'],
+ ['Wie nennt man Energie, die man für das Schmelzen benötigt?','Schmelzenergie',['Ionisationsenergie in jeder Situation','Elektronenmasse','Druckenergie'],'In den Unterlagen wird von Schmelzenergie gesprochen.'],
+ ['Wie nennt man Energie, die man zum Verdampfen benötigt?','Verdampfungsenergie',['Kernenergie','Elektronenladung','Ordnungszahl'],'Die Unterlagen verwenden den Begriff Verdampfungsenergie.']
+]);
+many('kurve','werte',[
+ ['Wo liegt der Schmelzpunkt von Wasser bei Normaldruck ungefähr?','0 °C',['100 °C','−100 °C','327 °C'],'Bei Normaldruck schmilzt Eis bei 0 °C.'],
+ ['Wo liegt der Siedepunkt von Wasser bei Normaldruck ungefähr?','100 °C',['0 °C','−78 °C','327 °C'],'Wasser siedet bei ungefähr 100 °C.'],
+ ['Laut Aufgabenblatt: Bei welcher Temperatur schmilzt Blei?','327 °C',['0 °C','−78 °C','100 °C'],'Der Übungswert für Blei ist 327 °C.'],
+ ['Laut Aufgabenblatt: Bei welcher Temperatur siedet Blei?','1740 °C',['327 °C','100 °C','0 °C'],'Für die Kurvenaufgabe verwendet das Blatt 1740 °C.'],
+ ['Trockeneis geht bei Normaldruck bei etwa −78 °C direkt in Gas über. Wie heisst das?','Sublimieren',['Schmelzen','Erstarren','Kondensieren'],'CO₂ geht direkt von fest zu gasförmig über.'],
+ ['Hängen Schmelz- und Siedepunkt auch vom Druck ab?','Ja',['Nein, niemals','Nur von der Farbe','Nur von der Gefässform'],'Die Unterlagen halten ausdrücklich fest, dass Druck die Übergangstemperaturen beeinflusst.']
+]);
+
+many('reinstoff','rein',[
+ ['Was ist ein Reinstoff?','Ein Stoff mit einer Teilchensorte',['Ein Stoff mit genau zwei Teilchensorten','Ein Stoff, der immer durchsichtig ist','Ein Stoff, der nur aus Atomen besteht'],'Ein Reinstoff enthält eine Art kleinster Teilchen.'],
+ ['Ist destilliertes reines Wasser ein Reinstoff?','Ja',['Nein, immer ein Gemisch','Nur bei 100 °C','Nur als Eis'],'Reines Wasser besteht aus H₂O-Teilchen.'],
+ ['Ist reiner Sauerstoff (O₂) ein Reinstoff?','Ja',['Nein, wegen der zwei O-Atome','Nein, weil es Gas ist','Nur wenn es flüssig ist'],'Alle Teilchen sind gleichartige O₂-Moleküle.'],
+ ['Ist reines Kupfer ein Reinstoff?','Ja',['Nein, wegen seiner Farbe','Nein, weil es fest ist','Nur wenn es geschmolzen ist'],'Reines Kupfer besteht aus einer Atomsorte.'],
+ ['Sind Wasserteilchen H₂O unter sich gleichartig?','Ja',['Nein, jedes hat andere Atome','Nur im Gefrierfach','Nur beim Sieden'],'Bei einem Reinstoff haben die kleinsten Teilchen die gleiche Zusammensetzung.'],
+ ['Ist ein Reinstoff automatisch ein chemisches Element?','Nein, auch Verbindungen können Reinstoffe sein',['Ja, immer','Nein, Reinstoffe sind immer Gemische','Nur Gase sind Reinstoffe'],'Reines Wasser ist eine Verbindung und trotzdem ein Reinstoff.']
+]);
+many('reinstoff','gemisch',[
+ ['Was ist ein Gemisch?','Ein Stoffsystem aus mindestens zwei Teilchensorten',['Ein Stoff aus exakt einer Teilchensorte','Immer ein neues Element','Immer eine chemische Verbindung'],'Gemische enthalten mehrere verschiedene Teilchensorten.'],
+ ['Ist Luft ein Gemisch?','Ja, ein Gemisch verschiedener Gase',['Nein, reiner Sauerstoff','Nein, ein Element','Nein, nur Wasserdampf'],'In Luft sind unter anderem Stickstoff und Sauerstoff.'],
+ ['Ist Zuckerwasser ein Gemisch?','Ja',['Nein, reines Wasser','Nein, ein Element','Nur wenn es warm ist'],'Zucker und Wasser bleiben zwei unterschiedliche Teilchensorten.'],
+ ['Sind Öl und Wasser zusammen ein Gemisch?','Ja',['Nein, weil sie getrennte Schichten bilden','Nein, weil es Flüssigkeiten sind','Nein, weil Öl kein Stoff ist'],'Auch getrennte Phasen bilden gemeinsam ein heterogenes Gemisch.'],
+ ['Warum kann ein Gemisch unterschiedliche Eigenschaften haben?','Weil die Anteile der Bestandteile verschieden sein können',['Weil sich alle Protonen ändern','Weil jede Mischung ein Element ist','Weil die Atome eine neue Farbe erhalten'],'Mischungsverhältnisse beeinflussen die Eigenschaften.'],
+ ['Was bleibt beim Mischen von Zucker mit Wasser erhalten?','Zucker- und Wasserteilchen',['Nur Wasserteilchen','Nur Luftteilchen','Ausschliesslich Ionen des Elements Zucker'],'Es entsteht ein Gemisch, keine neue Verbindung.']
+]);
+many('reinstoff','mischen',[
+ ['Beim Mischen zweier Stoffe …','entsteht nicht automatisch eine chemische Reaktion',['entstehen immer neue Elemente','verschwindet die Hälfte der Teilchen','verändert sich die Ordnungszahl'],'Mischen kann rein physikalisch sein.'],
+ ['Eine Lösung aus Zucker und Wasser ist …','ein Gemisch',['ein Element','ein einzelnes Wassermolekül','ein reines Metall'],'Zucker- und Wasserteilchen sind vorhanden.'],
+ ['Wenn ein Gemisch getrennt wird, …','erhält man Bestandteile zurück',['müssen neue Elemente entstehen','ändern alle Atome ihre Protonenzahl','verschwindet der Stoff'],'Die ursprünglichen Stoffe können oft physikalisch getrennt werden.'],
+ ['Was bestimmt eine Eigenschaft eines Gemischs mit?','Das Mengenverhältnis der Stoffe',['Nur die Farbe des Gefässes','Nur die Zeit auf der Uhr','Die Ordnungszahl des Glases'],'Die Zusammensetzung spielt eine Rolle.'],
+ ['Weshalb ist Salzwasser kein Reinstoff?','Es enthält mehr als eine Teilchensorte',['Weil es durchsichtig ist','Weil es flüssig ist','Weil es keinen Siedepunkt hat'],'Gelöste Ionen und Wasserteilchen sind vorhanden.'],
+ ['Wie kann man sich ein Gemisch im Teilchenmodell vorstellen?','Mit mindestens zwei unterschiedlichen Teilchensorten',['Mit immer identischen Teilchen','Ohne Teilchen','Nur als Atomkern'],'Die unterschiedlichen Teilchen können durch verschiedene Symbole dargestellt werden.']
+]);
+
+many('homogen','homo',[
+ ['Was bedeutet homogen?','Überall gleichmässig, Bestandteile nicht getrennt erkennbar',['In klaren Schichten getrennt','Immer fest','Chemisch völlig rein'],'Homogen beschreibt eine einheitliche Erscheinung.'],
+ ['Ist klares Zuckerwasser normalerweise homogen?','Ja',['Nein, weil Zucker fest war','Nein, weil zwei Stoffe vorhanden sind','Nur wenn es gefroren ist'],'Die Zuckerteilchen sind gleichmässig verteilt.'],
+ ['Ist Luft ein homogenes Gemisch?','Ja',['Nein, weil es verschiedene Gase enthält','Nein, weil man sie atmet','Nur bei 0 °C'],'Die Gase sind gleichmässig durchmischt.'],
+ ['Ist Messing eine homogene Legierung?','Ja',['Nein, immer eine Suspension','Nein, immer ein Nebel','Nein, immer eine Emulsion'],'Messing wird als Beispiel für eine Legierung genannt.'],
+ ['Was zeigt die Stoffebene bei einem homogenen Gemisch?','Keine erkennbaren getrennten Bestandteile',['Immer mehrere sichtbare Schichten','Immer Bodensatz','Immer unterschiedliche Farben'],'Homogene Gemische erscheinen einheitlich.'],
+ ['Enthält ein homogenes Gemisch trotzdem verschiedene Teilchensorten?','Ja',['Nein, dann wäre es ein Reinstoff','Nur in festen Stoffen','Nur in Gasen'],'Homogen bedeutet nicht chemisch rein.']
+]);
+many('homogen','hetero',[
+ ['Was bedeutet heterogen?','Unterschiedliche Bestandteile oder Phasen sind erkennbar',['Eine einzige Teilchensorte','Immer durchsichtig','Immer gasförmig'],'Heterogene Gemische sind uneinheitlich.'],
+ ['Öl schwimmt in einer Schicht auf Wasser.','Heterogen',['Homogen','Reines Wasser','Eine Legierung'],'Zwei Flüssigkeitsphasen sind sichtbar.'],
+ ['Granit mit verschiedenen Mineralen ist …','heterogen',['homogen','ein einzelnes Element','eine Lösung'],'Mehrere Mineralbestandteile sind erkennbar.'],
+ ['Frischer Orangensaft mit Fruchtfleisch ist …','heterogen',['immer ein Reinstoff','immer eine Legierung','ein Gasgemisch'],'Die festen Fruchtteilchen verteilen sich in der Flüssigkeit.'],
+ ['Welche Beobachtung passt zu heterogen?','Es ist ein Bodensatz zu sehen',['Alles sieht einheitlich aus','Die Teilchen sind alle gleich','Es gibt nur eine Atomsorte'],'Sichtbarer Bodensatz bedeutet getrennte Phase.'],
+ ['Welche Mischung bildet üblicherweise getrennte Schichten?','Wasser und Öl',['Wasser und gelöster Zucker','Gemischte Luftgase','Wasser und gelöstes Salz'],'Wasser und Öl sind nicht mischbar.']
+]);
+many('homogen','beispiele',[
+ ['Wodka (Wasser + Ethanol) ist meist …','homogen',['heterogen wie Granit','eine Suspension','ein Reinstoff'],'Wasser und Ethanol mischen sich gleichmässig.'],
+ ['Milch ist im Schulstoff ein Beispiel für …','eine heterogene Emulsion',['einen Reinstoff','eine Legierung','ein Gasgemisch'],'Kleine Fetttröpfchen sind in der wässrigen Phase verteilt.'],
+ ['Ein Glas mit Salz, das sich vollständig gelöst hat, ist …','homogen',['heterogen mit Bodensatz','immer eine Emulsion','ein reines Element'],'Eine klare Salzlösung ist im Schulmodell homogen.'],
+ ['Sand in Wasser, auch nach dem Umrühren, ist …','heterogen',['homogen','eine Legierung','ein Reinstoff'],'Sandteilchen bleiben als feste Teilchen im Wasser.'],
+ ['Ein klarer Tee ohne sichtbare Bestandteile ist meistens …','ein homogenes Gemisch',['immer ein Reinstoff','eine Suspension','ein Gemenge'],'Verschiedene Stoffe sind gleichmässig gelöst.'],
+ ['Woran erkennst du eine nicht ganz homogene Mischung?','An erkennbaren Phasen oder Teilchen',['An der Lautstärke','An der Temperatur allein','An der Höhe des Glases'],'Getrennte Phasen sind ein Hinweis auf ein heterogenes Gemisch.']
+]);
+
+const MIX_TYPES=[
+ ['heterotyp','Gemenge','Granit','Legierung','Suspension','Emulsion','Feste Bestandteile verschiedener Art liegen nebeneinander.'],
+ ['heterotyp','Suspension','Orangensaft mit Fruchtfleisch','Emulsion','Lösung','Gemenge','Feste Fruchtteile in einer Flüssigkeit.'],
+ ['heterotyp','Emulsion','Milch','Suspension','Nebel','Gasgemisch','Feine Flüssigkeitströpfchen in einer anderen Flüssigkeit.'],
+ ['heterotyp','Rauch','Grillfeuer-Rauch','Nebel','Schaum','Gasgemisch','Feste Partikel in einem Gas.'],
+ ['heterotyp','Nebel','Wolken','Rauch','Legierung','Gemenge','Kleine Flüssigkeitströpfchen in einem Gas.'],
+ ['heterotyp','Schaum','Seifenblasen-Schaum','Nebel','Suspension','Gasgemisch','Gasblasen in einer Flüssigkeit.'],
+ ['homotyp','Legierung','Messing','Gemenge','Suspension','Emulsion','Ein gleichmässiges Gemisch aus Metallen.'],
+ ['homotyp','Gasgemisch','Luft','Rauch','Emulsion','Nebel','Verschiedene Gase bilden eine einheitliche Mischung.'],
+ ['homotyp','Lösung','Zuckerwasser','Suspension','Gemenge','Rauch','Zucker ist gleichmässig im Wasser verteilt.'],
+ ['homotyp','Lösung','Mineralwasser mit gelöstem CO₂','Schaum','Gemenge','Legierung','Gelöstes Gas in Flüssigkeit kann eine homogene Lösung sein.']
+];
+MIX_TYPES.forEach(([skill,type,example,...rest])=>{
+ const why=rest.pop(), wrong=rest;
+ Q('gemischarten',skill,`Welcher Gemischtyp ist „${example}“?`,type,wrong,why);
+});
+many('gemischarten','heterotyp',[
+ ['Welche Gemischart ist Feststoff in Flüssigkeit?','Suspension',['Emulsion','Legierung','Gasgemisch'],'Beispiel: Fruchtfleisch in Orangensaft.'],
+ ['Welche Gemischart ist Flüssigkeit in Flüssigkeit (nicht vollständig mischbar)?','Emulsion',['Gasgemisch','Rauch','Gemenge'],'Beispiel: Milch.'],
+ ['Welche Gemischart ist Feststoff in Gas?','Rauch',['Nebel','Lösung','Legierung'],'Rauch enthält kleine feste Teilchen in einem Gas.'],
+ ['Welche Gemischart ist Flüssigkeit in Gas?','Nebel',['Rauch','Gemenge','Legierung'],'Wolken sind ein Beispiel.'],
+ ['Welche Gemischart ist Gas in Flüssigkeit?','Schaum',['Nebel','Rauch','Gemenge'],'Beim Schaum sind Gasblasen von Flüssigkeit umgeben.'],
+ ['Welche Gemischart ist Feststoff in Feststoff, heterogen?','Gemenge',['Gasgemisch','Emulsion','Lösung'],'Granit ist ein Beispiel.'],
+ ['Wie unterscheiden sich Rauch und Nebel?','Rauch: fest in Gas; Nebel: flüssig in Gas',['Beides ist fest in fest','Nebel: fest in Gas; Rauch: flüssig in Gas','Beide sind immer homogen'],'Entscheidend ist der Aggregatzustand der verteilten Teilchen.']
+]);
+many('gemischarten','homotyp',[
+ ['Welche Mischung ist eine Legierung?','Messing',['Milch','Wolken','Grillrauch'],'Messing enthält verschiedene Metalle.'],
+ ['Welche Mischung ist ein Gasgemisch?','Luft',['Granit','Milch','Sandwasser'],'Luft enthält mehrere Gase.'],
+ ['Wie nennt man gelösten Zucker in Wasser?','Lösung',['Emulsion','Gemenge','Rauch'],'Der Zucker ist gleichmässig verteilt.'],
+ ['Ist eine Legierung im üblichen Schulbeispiel homogen oder heterogen?','Homogen',['Heterogen wie Granit','Ein einzelnes Molekül','Immer ein Reinstoff'],'Die Metalle sind gleichmässig gemischt.'],
+ ['Was ist Zuckerwasser?','Eine homogene Lösung',['Eine heterogene Suspension','Ein reines Element','Ein Gasgemisch'],'Zucker ist auf Teilchenebene gleichmässig im Wasser verteilt.'],
+ ['Welches Beispiel ist eine Lösung aus zwei Flüssigkeiten?','Ethanol in Wasser',['Granit','Sand in Wasser','Rauch'],'Ethanol und Wasser sind mischbare Flüssigkeiten.']
+]);
+many('gemischarten','phasentyp',[
+ ['Was ist in Nebel verteilt?','Kleine Flüssigkeitströpfchen im Gas',['Kleine Feststoffkörner in Flüssigkeit','Metalle in einem Feststoff','Gasblasen in einem Feststoff'],'Nebel besteht aus Flüssigkeit in Gas.'],
+ ['Was ist in Rauch verteilt?','Feste Teilchen im Gas',['Gasblasen im Wasser','Zucker in Wasser','Metalle in Metallen'],'Rauch wird als Feststoff/Gas-Gemisch eingeordnet.'],
+ ['Was sind die Bestandteile eines Schaums?','Gas und Flüssigkeit',['Zwei feste Metalle','Zwei verschiedene Gase','Nur ein Reinstoff'],'Schaum enthält Gasblasen in Flüssigkeit.'],
+ ['Was sind die Bestandteile einer Suspension?','Feststoff und Flüssigkeit',['Gas und Gas','Flüssigkeit und Gas (Nebel)','Feststoff und Feststoff (Legierung)'],'Ein Feststoff ist in einer Flüssigkeit verteilt.'],
+ ['Was sind die Bestandteile eines Gemenges?','Feststoff und Feststoff',['Gas und Gas','Flüssigkeit und Gas','Nur Gas'],'Ein Gemenge enthält mehrere feste Bestandteile.'],
+ ['Wie unterscheiden sich Schaum und Nebel?','Schaum: Gas in Flüssigkeit; Nebel: Flüssigkeit in Gas',['Es gibt keinen Unterschied','Beides ist nur Feststoff','Beides ist eine Legierung'],'Die Rollen von Gas und Flüssigkeit sind vertauscht.'],
+ ['Was steckt in einer Emulsion?','Zwei nicht vollständig mischbare Flüssigkeiten',['Nur ein Gas','Ein reines Element','Nur ein Feststoff'],'Zwei Flüssigkeiten liegen fein verteilt nebeneinander vor.']
+]);
+
+many('typen','atom',[
+ ['Was ist ein Atom?','Ein chemischer Grundbaustein',['Immer zwei verbundene Atome','Ein geladenes Molekül','Ein Gemisch'],'Ein Atom ist die kleinste chemische Einheit eines Elements.'],
+ ['Was liegt in reinem Neon-Gas überwiegend vor?','Einzelne Neonatome',['Wassermoleküle','Kupferionen','Gemischte Metallatome'],'Neon ist ein Edelgas und liegt einatomig vor.'],
+ ['Was sind die Teilchen von reinem Kupfer?','Kupferatome',['Wassermoleküle','Sauerstoffionen','Neonmoleküle'],'Kupfer ist ein chemisches Element.'],
+ ['Ist ein Atom unbedingt elektrisch geladen?','Nein',['Ja, immer positiv','Ja, immer negativ','Ja, immer zweifach'],'Ein Atom ist in der Regel elektrisch neutral.'],
+ ['Wie viele Atome enthält ein einzelnes Neonatom?','Eines',['Zwei','Drei','Vier'],'Ein Neonatom ist ein einzelnes Atom.'],
+ ['Wieso heisst ein Atom „Atom“?','Der Name stammt von „atomos“, ursprünglich unteilbar',['Weil Atome immer rot sind','Weil sie nur gasförmig sind','Weil es ein anderes Wort für Mischung ist'],'Die Bezeichnung stammt aus dem Griechischen.']
+]);
+many('typen','molekuel',[
+ ['Was ist ein Molekül?','Mindestens zwei miteinander verbundene Atome',['Genau ein Proton','Immer ein positiver Ladungsträger','Ein Gemisch mehrerer Reinstoffe'],'Moleküle sind Atomverbände.'],
+ ['Wie viele Atome hat ein H₂O-Molekül?','Drei',['Eines','Zwei','Vier'],'Zwei H-Atome und ein O-Atom ergeben drei Atome.'],
+ ['Welche Atome enthält ein Wassermolekül?','Zwei H und ein O',['Zwei O und ein H','Nur ein H','Drei O'],'H₂O bedeutet 2 Wasserstoffatome + 1 Sauerstoffatom.'],
+ ['Was bedeutet O₂?','Ein Molekül mit zwei Sauerstoffatomen',['Zwei Sauerstoffmoleküle','Ein Wassermolekül','Ein positiv geladenes Ion'],'O₂ ist ein zweiatomiges Sauerstoffmolekül.'],
+ ['Müssen die Atome eines Moleküls verschieden sein?','Nein, O₂ enthält gleiche Atome',['Ja, immer','Nur bei Wasser','Nur bei Ionen'],'Ein Molekül kann aus gleichen oder verschiedenen Atomen bestehen.'],
+ ['Sind Moleküle insgesamt elektrisch neutral?','Im Schulmodell ja',['Immer positiv','Immer negativ','Immer ohne Atome'],'Geladene Teilchen werden als Ionen bezeichnet.']
+]);
+many('typen','ion',[
+ ['Was ist ein Ion?','Ein elektrisch geladenes Teilchen',['Ein immer neutraler Atomverband','Nur ein Feststoff','Ein Gefäss'],'Ionen tragen positive oder negative elektrische Ladung.'],
+ ['Wie heisst ein positiv geladenes Ion?','Kation',['Anion','Neutron','Molekül'],'Kationen sind positiv geladen.'],
+ ['Wie heisst ein negativ geladenes Ion?','Anion',['Kation','Proton','Reinstoff'],'Anionen sind negativ geladen.'],
+ ['Welche Ionen ziehen sich gegenseitig an?','Positiv und negativ geladene Ionen',['Zwei positive Ionen','Zwei negative Ionen','Alle Ionen stossen sich immer ab'],'Entgegengesetzte Ladungen ziehen sich an.'],
+ ['Was ist ein Beispiel für einen Ionenverband?','Kaliumiodid (KI)',['Reines Neon','Reiner Sauerstoff','Wasserdampf'],'Kaliumiodid ist aus Kationen und Anionen aufgebaut.'],
+ ['Ein neutrales Atom nimmt ein Elektron auf.','Es wird zu einem negativen Ion',['Es wird automatisch zu einem Proton','Es bleibt immer neutral','Es verliert seinen Kern'],'Zusätzliche Elektronen bedeuten negative Ladung.'],
+ ['Ein neutrales Atom gibt ein Elektron ab.','Es wird zu einem positiven Ion',['Es wird negativ','Es wird zu einem Neutron','Es erhält ein zusätzliches Proton'],'Weniger Elektronen als Protonen ergeben positive Ladung.']
+]);
+
+many('atomaufbau','ladung',[
+ ['Welche Ladung besitzt ein Proton?','Positiv (+)',['Negativ (−)','Neutral (0)','Abwechselnd + und −'],'Protonen sind positiv geladen.'],
+ ['Welche Ladung besitzt ein Elektron?','Negativ (−)',['Positiv (+)','Neutral (0)','Keine mögliche Ladung'],'Elektronen sind negativ geladen.'],
+ ['Welche Ladung besitzt ein Neutron?','Neutral (0)',['Positiv (+)','Negativ (−)','Doppelt positiv'],'Neutronen sind elektrisch neutral.'],
+ ['Welche Teilchenart trägt die positive Elementarladung?','Proton',['Elektron','Neutron','Molekül'],'Protonen sind positiv geladen.'],
+ ['Welche Teilchenart trägt eine negative Elementarladung?','Elektron',['Proton','Neutron','Atomkern'],'Elektronen sind negativ geladen.'],
+ ['Welches Teilchen verändert vor allem die Ionenladung beim gewöhnlichen Chemievorgang?','Elektron',['Proton','Neutron','Atomkern als Ganzes'],'Ionen entstehen durch Aufnahme oder Abgabe von Elektronen.']
+]);
+many('atomaufbau','ort',[
+ ['Wo sind die Protonen?','Im Atomkern',['In der Atomhülle','Zwischen Molekülen','Ausserhalb des Atoms'],'Der Atomkern enthält Protonen.'],
+ ['Wo sind die Neutronen?','Im Atomkern',['Nur in der Hülle','Nur in Molekülen','Im Periodensystem'],'Neutronen befinden sich im Kern.'],
+ ['Wo sind die Elektronen?','In der Atomhülle',['Im Kern zwischen Protonen','Ausserhalb jeder Materie','Immer im Gefässboden'],'Elektronen bilden die Hülle.'],
+ ['Wo befindet sich fast die gesamte Atommasse?','Im Kern',['In der Elektronenhülle','In den Zwischenräumen','In der Atomhülle allein'],'Protonen und Neutronen sind viel schwerer als Elektronen.'],
+ ['Welche Teilchen bilden gemeinsam den Kern?','Protonen und Neutronen',['Elektronen und Neutronen','Nur Elektronen','Moleküle und Elektronen'],'Kernteilchen sind Protonen und Neutronen.'],
+ ['Weshalb sind Atombilder mit kreisenden Elektronen nur Modelle?','Sie zeigen die Wirklichkeit vereinfacht',['Weil Atome nicht existieren','Weil Protonen ausserhalb sind','Weil Elektronen immer quadratisch sind'],'Das Schulbild ist eine vereinfachte Atomdarstellung.']
+]);
+many('atomaufbau','neutral',[
+ ['Wann ist ein Atom elektrisch neutral?','Protonenzahl = Elektronenzahl',['Protonenzahl = Neutronenzahl','Neutronenzahl = 0','Elektronenzahl = 0'],'Positive und negative Ladungen heben sich auf.'],
+ ['Ein Atom hat 8 Protonen und 8 Elektronen. Es ist …','neutral',['zweifach positiv','zweifach negativ','vierfach negativ'],'Gleich viele positive und negative Ladungen.'],
+ ['Ein Teilchen hat 11 Protonen und 10 Elektronen.','Einfach positiv geladen',['Neutral','Einfach negativ geladen','Zweifach negativ geladen'],'Ein Elektron fehlt → Ladung 1+.'],
+ ['Ein Teilchen hat 8 Protonen und 10 Elektronen.','Zweifach negativ geladen',['Neutral','Zweifach positiv geladen','Einfach positiv geladen'],'Zwei Elektronen mehr als Protonen → 2−.'],
+ ['Wie entsteht ein positives Ion?','Durch Abgabe eines oder mehrerer Elektronen',['Durch Aufnahme von Elektronen','Durch Aufnahme von Neutronen','Durch Umwandlung in Wasser'],'Elektronenverlust führt zur positiven Ladung.'],
+ ['Was passiert beim Bilden eines Ions mit der Protonenzahl?','Sie bleibt gleich',['Sie wird immer 0','Sie verdoppelt sich','Sie wechselt mit Elektronen die Plätze'],'Die Ionisation ändert die Elektronenzahl.']
+]);
+
+many('pse','symbol',[
+ ['Welches Symbol steht für Sauerstoff?','O',['S','Au','So'],'O steht für Sauerstoff.'],
+ ['Welches Symbol steht für Wasserstoff?','H',['W','Wa','He'],'H steht für Wasserstoff; He ist Helium.'],
+ ['Welches Symbol steht für Kohlenstoff?','C',['K','Co','Ko'],'C steht für Kohlenstoff.'],
+ ['Welches Symbol steht für Eisen?','Fe',['E','Ei','Es'],'Fe ist das Elementsymbol für Eisen.'],
+ ['Welches Symbol steht für Kupfer?','Cu',['K','Ku','Co'],'Cu steht für Kupfer.'],
+ ['Welches Symbol steht für Natrium?','Na',['N','Nr','Ni'],'Na steht für Natrium.'],
+ ['Welches Symbol steht für Magnesium?','Mg',['M','Ma','Mn'],'Mg steht für Magnesium.'],
+ ['Welches Symbol steht für Chlor?','Cl',['C','Ch','Cr'],'Cl steht für Chlor.'],
+ ['Welches Symbol steht für Stickstoff?','N',['S','St','Ni'],'N steht für Stickstoff.'],
+ ['Welches Symbol steht für Gold?','Au',['Ag','Go','Gd'],'Au ist Gold; Ag ist Silber.']
+]);
+many('pse','ordnung',[
+ ['Was zeigt die Ordnungszahl eines Elements an?','Die Anzahl der Protonen',['Die Zahl der Neutronen immer','Die Massenzahl','Den Schmelzpunkt'],'Die Ordnungszahl Z ist die Protonenzahl.'],
+ ['Welche Ordnungszahl hat Wasserstoff?','1',['2','6','8'],'Wasserstoff besitzt ein Proton.'],
+ ['Welche Ordnungszahl hat Sauerstoff?','8',['6','10','16'],'Sauerstoff besitzt acht Protonen.'],
+ ['Welche Ordnungszahl hat Kohlenstoff?','6',['8','12','14'],'Kohlenstoff besitzt sechs Protonen.'],
+ ['Wie viele Elektronen hat ein neutrales Magnesiumatom (Z=12)?','12',['10','24','6'],'Beim neutralen Atom gilt Elektronen = Protonen = Z.'],
+ ['Was bedeutet die Ordnungszahl 79 bei Gold?','79 Protonen im Kern',['79 Neutronen immer','79 Moleküle im Glas','79 Aussenelektronen'],'Die Protonenzahl definiert das Element.'],
+ ['Wie viele Protonen hat ein Element mit Z=35?','35',['80','45','36'],'Z ist immer die Protonenzahl.']
+]);
+many('pse','element',[
+ ['Ist O₂ ein Element oder eine Verbindung?','Element',['Verbindung aus verschiedenen Elementen','Gemisch','Ionengitter'],'O₂ besteht nur aus Sauerstoffatomen.'],
+ ['Ist H₂O eine chemische Verbindung?','Ja',['Nein, ein Element','Nein, ein homogener Reinstoff aus nur H','Nein, ein einzelnes Atom'],'Wasser besteht aus verschiedenen chemisch verbundenen Atomsorten.'],
+ ['Wodurch wird eine Atomsorte bestimmt?','Durch die Zahl ihrer Protonen',['Durch die Zahl ihrer Moleküle','Durch die Temperatur','Durch die Form des Gefässes'],'Die Protonenzahl bestimmt das Element.'],
+ ['Wie schreibt man Elementsymbole richtig?','Erster Buchstabe gross, zweiter klein',['Immer alle Buchstaben gross','Immer alles klein','Immer drei Zahlen zuerst'],'Zum Beispiel Cl und Mg.'],
+ ['Warum sind H und He zwei verschiedene Elemente?','Weil sie unterschiedliche Protonenzahlen haben',['Weil sie unterschiedliche Temperaturen brauchen','Weil sie verschiedene Farben im Lehrbuch haben','Weil eines immer flüssig ist'],'H hat Z=1, He hat Z=2.'],
+ ['Welche Stoffformel enthält zwei verschiedene Elemente?','CO₂',['O₂','N₂','H₂'],'CO₂ enthält Kohlenstoff und Sauerstoff.']
+]);
+
+// Durch viele unterschiedliche Isotope und Ionen entstehen hunderte Übungsvarianten.
+const NUCLIDES=[
+ {s:'H',name:'Wasserstoff',z:1,a:1}, {s:'H',name:'Wasserstoff',z:1,a:2}, {s:'H',name:'Wasserstoff',z:1,a:3},
+ {s:'He',name:'Helium',z:2,a:4}, {s:'Li',name:'Lithium',z:3,a:7}, {s:'Be',name:'Beryllium',z:4,a:9},
+ {s:'B',name:'Bor',z:5,a:11}, {s:'C',name:'Kohlenstoff',z:6,a:12}, {s:'C',name:'Kohlenstoff',z:6,a:13}, {s:'C',name:'Kohlenstoff',z:6,a:14},
+ {s:'N',name:'Stickstoff',z:7,a:14}, {s:'N',name:'Stickstoff',z:7,a:15}, {s:'O',name:'Sauerstoff',z:8,a:16}, {s:'O',name:'Sauerstoff',z:8,a:18},
+ {s:'F',name:'Fluor',z:9,a:19}, {s:'Ne',name:'Neon',z:10,a:20}, {s:'Na',name:'Natrium',z:11,a:23},
+ {s:'Mg',name:'Magnesium',z:12,a:24}, {s:'Mg',name:'Magnesium',z:12,a:25}, {s:'Al',name:'Aluminium',z:13,a:27},
+ {s:'Si',name:'Silicium',z:14,a:28}, {s:'P',name:'Phosphor',z:15,a:31}, {s:'S',name:'Schwefel',z:16,a:32},
+ {s:'Cl',name:'Chlor',z:17,a:35}, {s:'Cl',name:'Chlor',z:17,a:37}, {s:'Ar',name:'Argon',z:18,a:40},
+ {s:'K',name:'Kalium',z:19,a:39}, {s:'Ca',name:'Calcium',z:20,a:40}, {s:'Fe',name:'Eisen',z:26,a:56},
+ {s:'Cu',name:'Kupfer',z:29,a:63}, {s:'Br',name:'Brom',z:35,a:80}, {s:'Ag',name:'Silber',z:47,a:107},
+ {s:'I',name:'Iod',z:53,a:127}, {s:'Ce',name:'Cer',z:58,a:140}, {s:'Au',name:'Gold',z:79,a:197}, {s:'Pb',name:'Blei',z:82,a:208}, {s:'U',name:'Uran',z:92,a:238}
+];
+function numberChoices(correct){
+ const n=Number(correct), opts=[n-2,n-1,n+1,n+2,n+3,n-3,n+5,n+8,2*n,Math.max(0,n-5)].filter(v=>Number.isInteger(v)&&v>=0&&v!==n);
+ return [...new Set(opts)].slice(0,3).map(String);
+}
+NUCLIDES.forEach(x=>{
+ const label=`${x.a}${x.s}`, n=x.a-x.z;
+ Q('rechnen','massenzahl',`Wie viele Neutronen hat ${label} (Z=${x.z})?`,String(n),numberChoices(n),`Neutronen = ${x.a} − ${x.z} = ${n}.`);
+ if(x.z<=20 || ['Br','Au','U','Ce'].includes(x.s)){
+ Q('rechnen','massenzahl',`Wie viele Protonen hat das Isotop ${label}?`,String(x.z),numberChoices(x.z),`Die Ordnungszahl ist ${x.z}. Sie bestimmt die Protonenzahl.`);
+ }
+});
+// Elektronenaufgaben: bewusst auch Beispiele aus Lucys Arbeitsblatt.
+const IONS=[
+ {s:'H',z:1,a:1,c:1},{s:'He',z:2,a:4,c:2},{s:'Li',z:3,a:7,c:1},{s:'O',z:8,a:16,c:-2},
+ {s:'F',z:9,a:19,c:-1},{s:'Na',z:11,a:23,c:1},{s:'Mg',z:12,a:24,c:2},{s:'Al',z:13,a:27,c:3},
+ {s:'S',z:16,a:32,c:-2},{s:'Cl',z:17,a:35,c:-1},{s:'K',z:19,a:39,c:1},{s:'Ca',z:20,a:40,c:2},
+ {s:'Fe',z:26,a:56,c:2},{s:'Fe',z:26,a:56,c:3},{s:'Cu',z:29,a:63,c:2},{s:'Br',z:35,a:80,c:-1},
+ {s:'Ag',z:47,a:107,c:1},{s:'I',z:53,a:127,c:-1}
+];
+IONS.forEach(x=>{
+ const e=x.z-x.c, charge=(Math.abs(x.c)===1?'':Math.abs(x.c))+(x.c>0?'+':'−'), label=`${x.a}${x.s}${charge}`;
+ Q('rechnen','ionenrechnen',`Wie viele Elektronen hat das Ion ${label} (Z=${x.z})?`,String(e),numberChoices(e),`Zuerst ${x.z} Protonen. ${x.c>0?'Positive Ladung bedeutet '+x.c+' Elektron(en) weniger.':'Negative Ladung bedeutet '+Math.abs(x.c)+' Elektron(en) mehr.'} Ergebnis: ${e}.`);
+ Q('rechnen','ionenrechnen',`${x.z} Protonen und ${e} Elektronen: Welche Ionenladung?`,x.c>0?`${x.c}+`:`${Math.abs(x.c)}−`,['neutral',`${Math.abs(x.c)+1}${x.c>0?'+':'−'}`,`${Math.abs(x.c)}${x.c>0?'−':'+'}`],`Ladung = Protonen − Elektronen = ${x.c>0?'+'+x.c:'−'+Math.abs(x.c)}.`);
+});
+many('rechnen','isotop',[
+ ['Was unterscheidet ¹²C und ¹³C?','Die Neutronenzahl',['Die Protonenzahl','Die Elementsorte','Die Elektronenladung'],'Beide haben 6 Protonen; ¹²C hat 6 Neutronen, ¹³C hat 7.'],
+ ['Wie heissen Atome desselben Elements mit verschiedener Neutronenzahl?','Isotope',['Moleküle','Kationen','Gemische'],'Isotope haben gleiche Protonenzahl, unterschiedliche Neutronenzahl.'],
+ ['Wofür steht die obere Zahl in ¹⁶O?','Die Massenzahl (Protonen + Neutronen)',['Nur die Elektronenzahl','Nur die Protonenzahl','Die Ionenladung'],'Die 16 bezeichnet die Summe der Kernteilchen.'],
+ ['Wofür steht die Ordnungszahl Z?','Die Protonenzahl',['Die Neutronenzahl','Immer die Massenzahl','Die Atomtemperatur'],'Z ist die Zahl der Protonen.'],
+ ['Was haben ¹²C und ¹³C gemeinsam?','Sechs Protonen',['Sechs Neutronen','Die gleiche Massenzahl','Verschiedene Elemente'],'Beide sind Kohlenstoff, Z = 6.'],
+ ['Ein Atom hat 6 Protonen und 7 Neutronen. Welches Isotop ist es?','¹³C',['¹²C','¹⁴N','¹⁶O'],'Massenzahl = 6 + 7 = 13.'],
+ ['Ein Atom hat 8 Protonen und 8 Neutronen. Welches Isotop ist es?','¹⁶O',['¹⁸O','¹⁴N','¹²C'],'A = 8 + 8 = 16, Element O.'],
+ ['Was bleibt bei zwei Isotopen eines Elements gleich?','Die Ordnungszahl',['Immer die Massenzahl','Immer die Neutronenzahl','Immer die Ladung aller Ionen'],'Die Anzahl Protonen bestimmt das Element.'],
+ ['Wie liest man ²⁴Mg richtig?','Magnesium mit Massenzahl 24',['Magnesium mit 24 Elektronen immer','Magnesium mit 24 Protonen','Magnesium mit Ladung 24+'],'24 ist die Massenzahl. Mg hat Z=12.']
+]);
+many('rechnen','ionenrechnen',[
+ ['Ein neutrales Atom nimmt zwei Elektronen auf.','Es wird zweifach negativ',['Es wird zweifach positiv','Es bleibt neutral','Es erhält zwei Protonen'],'Zwei zusätzliche Elektronen bedeuten 2−.'],
+ ['Ein neutrales Atom gibt drei Elektronen ab.','Es wird dreifach positiv',['Es wird dreifach negativ','Es bleibt neutral','Es erhält drei Neutronen'],'Drei fehlende Elektronen bedeuten 3+.'],
+ ['Was bedeutet das hochgestellte 2+ bei Mg²⁺?','Zwei Elektronen weniger als Protonen',['Zwei Protonen insgesamt','Zwei Neutronen mehr','Zwei zusätzliche Elektronen'],'Mg²⁺ hat zwei Elektronen abgegeben.'],
+ ['Was bedeutet das hochgestellte − bei Br⁻?','Ein Elektron mehr als Protonen',['Ein Proton mehr','Ein Neutron weniger','Keine Elektronen'],'Ein einfach negatives Ion hat ein zusätzliches Elektron.'],
+ ['Ändert sich die Massenzahl, wenn ein Atom ein Elektron abgibt?','Nein',['Ja, sie sinkt immer um 1','Ja, sie verdoppelt sich','Ja, sie wird 0'],'Die Massenzahl zählt Protonen und Neutronen.'],
+ ['Ein Ion ist positiv. Was folgt sicher?','Es besitzt weniger Elektronen als Protonen',['Es besitzt mehr Elektronen als Protonen','Es besitzt keine Protonen','Es besteht immer aus zwei Atomen'],'Positive Nettoladung bedeutet Elektronenmangel.']
+]);
+
+const SOURCE_FILES=[
+ 'Was ist Chemie_.pdf','Womit beschäftigt sich Chemie_.pdf','Der Unterschied zwischen Chemie und Physik.pdf',
+ 'Teilchenmodell.pdf','Aggregatzustände.pdf','Teilchenbewegung.pdf','Reinstoffe und Gemische.pdf',
+ '3 Typen kleinster Teilchen.pdf','Elementarteilchen.pdf','Elementarteilchen 2.pdf','PSE.pdf'
+];
+
+'use strict';
+const KEY='lucys_chemielabor_2026_v1';
+const COOKIE='lucy_chemie_v1';
+const TEST_SIZE=6;
+const byId=id=>document.getElementById(id);
+const state={events:[],rounds:[],created:Date.now()};
+let page='home', currentTest=null, testResult=null, storageMode='';
+function enc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function safeDate(v){try{return new Date(v).toLocaleDateString('de-CH',{day:'2-digit',month:'2-digit',year:'numeric'});}catch{return '–';}}
+function readCookie(){try{const m=document.cookie.match(new RegExp('(?:^|; )'+COOKIE+'=([^;]*)'));return m?JSON.parse(decodeURIComponent(m[1])):null;}catch{return null;}}
+function save(){
+ state.events=state.events.slice(-1400); state.rounds=state.rounds.slice(-250);
+ try {localStorage.setItem(KEY,JSON.stringify(state));storageMode='Lokaler Browserspeicher';} catch(e){storageMode='Speichern eingeschränkt';}
+ try {
+  const tally=TOPICS.map(t=>[t.id,t.skills.map(([skill])=>{const e=state.events.filter(x=>x.topic===t.id&&x.skill===skill).slice(-12);return [skill,e.length,e.filter(x=>x.correct).length];})]);
+  const compact={v:2,at:Date.now(),t:tally};
+  document.cookie=COOKIE+'='+encodeURIComponent(JSON.stringify(compact))+'; max-age=31536000; path=/; SameSite=Lax';
+  if(document.cookie.includes(COOKIE+'='))storageMode='Browserspeicher + Cookie';
+ }catch(e){}
+}
+function load(){
+ try{const loaded=JSON.parse(localStorage.getItem(KEY)||'null');if(loaded&&Array.isArray(loaded.events)){
+ state.events=loaded.events.filter(x=>x&&typeof x.topic==='string'&&typeof x.skill==='string'&&typeof x.correct==='boolean');
+ state.rounds=Array.isArray(loaded.rounds)?loaded.rounds:[];state.created=loaded.created||Date.now();storageMode='Lokaler Browserspeicher';return;
+ }}catch(e){}
+ const c=readCookie();if(c&&Array.isArray(c.t)){ // nur verdichtete Werte verfügbar
+  c.t.forEach(([id,stats])=>{
+   const t=TOPICS.find(x=>x.id===id);if(!t||!Array.isArray(stats))return;
+   stats.forEach(([skill,total,ok])=>{
+    if(!t.skills.some(s=>s[0]===skill)||!Number.isFinite(total)||total<=0)return;
+    const lim=Math.min(12,total),good=Math.round(Math.min(1,ok/total)*lim);
+    for(let i=0;i<lim;i++)state.events.push({topic:id,skill,correct:i<good,ts:c.at||Date.now(),recovered:true});
+   });
+  });storageMode='Cookie (zusammengefasste Unterthemen)';
+ }
+}
+function groupEvents(topic,skill){return state.events.filter(e=>(!topic||e.topic===topic)&&(!skill||e.skill===skill));}
+function getSkill(topic,skill){
+ const ev=groupEvents(topic,skill).slice(-12);
+ const n=ev.length, rate=n?ev.filter(x=>x.correct).length/n:0;
+ const confidence=Math.min(1,n/4);
+ const mastery=Math.round(rate*confidence*100);
+ const status=!n?'Offen':(n<4?'Noch üben':rate>=.80?'Sicher':rate>=.6?'Fast sicher':'Wiederholen');
+ return {n,rate,confidence,mastery,status,correct:ev.filter(x=>x.correct).length};
+}
+function getTopic(id){const t=TOPICS.find(x=>x.id===id);if(!t)return null;
+ const s=t.skills.map(([key,label])=>({key,label,...getSkill(id,key)}));
+ const all=groupEvents(id), val=Math.round(s.reduce((a,x)=>a+x.mastery,0)/s.length);
+ return {...t,skillStats:s,mastery:val,n:all.length,rate:all.length?all.filter(x=>x.correct).length/all.length:0,rounds:state.rounds.filter(x=>x.topic===id).length};
+}
+function overview(){
+ const t=TOPICS.map(x=>getTopic(x.id));const events=state.events;
+ return {topics:t,score:Math.round(t.reduce((a,x)=>a+x.mastery,0)/t.length),tested:t.filter(x=>x.n>0).length,solid:t.filter(x=>x.skillStats.every(s=>s.status==='Sicher')).length,accuracy:events.length?Math.round(events.filter(x=>x.correct).length/events.length*100):null,answered:events.length};
+}
+function pct(n){return Math.max(0,Math.min(100,Math.round(n)))}
+function progressBar(v,label='Fortschritt'){
+ return `<div class="track" role="progressbar" aria-label="${enc(label)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct(v)}"><span style="width:${pct(v)}%"></span></div>`;
+}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function nav(to){location.hash='#'+to;if(location.hash==='#'+to){page=to;render();window.scrollTo({top:0,behavior:'instant'});}}
+function navLinks(){const o=overview();const names=[...new Set(TOPICS.map(t=>t.group))];
+ return `<div class="navlinks"><button class="nav-main ${page==='home'?'active':''}" data-nav="home">⌂ <span>Übersicht</span></button><button class="nav-main ${page==='analyse'?'active':''}" data-nav="analyse">▥ <span>Lernanalyse</span></button>${names.map(group=>`<div class="nav-group">${enc(group)}</div>${TOPICS.filter(t=>t.group===group).map(t=>{const info=o.topics.find(x=>x.id===t.id);return `<button class="nav-topic ${page==='thema/'+t.id?'active':''}" data-nav="thema/${t.id}"><span class="nav-ico" aria-hidden="true">${t.icon}</span><span class="nav-copy">${enc(t.title)}<span class="nav-mini">${info.n?`${info.mastery}% geübt`:'Noch offen'}</span></span><span class="nav-pip ${info.n?(info.mastery>=80?'yes':'started'):''}"></span></button>`}).join('')}`).join('')}</div>`;
+}
+function circleHTML(score,sub='Lernfortschritt'){
+ return `<div class="meter" style="--score:${pct(score)}"><div class="meter-inside"><span class="meter-number">${pct(score)}<small>%</small></span><span class="meter-label">${enc(sub)}</span></div></div>`;
+}
+function home(){const o=overview(), next=o.topics.find(x=>x.n===0)||[...o.topics].filter(x=>x.n>0).sort((a,b)=>a.mastery-b.mastery)[0];
+ const m=o.answered?`${o.accuracy}% bisher richtig`:'Dein erster Mini-Test wartet auf dich';
+ return `<div class="page-home"><section class="welcome"><div><span class="eyebrow">DEINE ERSTE CHEMIEPRÜFUNG</span><h1>Hey Lucy, <span class="twinkle">Chemie kann man verstehen.</span></h1><p class="lead">15 kleine Lerneinheiten, anschauliche Beispiele und ganz viele wechselnde Fragen. Lerne in deinem Tempo – ohne Notendruck.</p><div class="hero-actions"><button class="btn primary" data-nav="thema/${next?.id||'chemie'}">${o.answered?'Weiterlernen':'Mit dem ersten Thema starten'} <span aria-hidden="true">→</span></button><span class="little">Je Kurztest: ${TEST_SIZE} Fragen · keine Anmeldung</span></div></div><button class="score-card" data-nav="analyse" aria-label="Lernbarometer öffnen: ${o.score} Prozent Lernfortschritt">${circleHTML(o.score)}<strong>Dein Lernbarometer <span aria-hidden="true">↗</span></strong><span>${o.answered?`Stand: ${o.tested} von ${TOPICS.length} Themen geübt`:'Noch keine Tests abgeschlossen'}</span><small>Antippen für die genaue Auswertung</small></button></section>
+ <section class="stats-row"><div class="mini-stat"><strong>${o.tested}<span>/${TOPICS.length}</span></strong><small>Themen begonnen</small></div><div class="mini-stat"><strong>${o.solid}<span>/${TOPICS.length}</span></strong><small>Gut gefestigt</small></div><div class="mini-stat"><strong>${o.answered}</strong><small>Fragen beantwortet</small></div><div class="mini-stat"><strong>${o.accuracy===null?'–':o.accuracy+'%'}</strong><small>Antworten richtig</small></div></section>
+ <div class="section-heading"><div><span class="eyebrow">DEIN LERNWEG</span><h2>Wähle ein Thema</h2><p>Jedes Thema hat einen Erklärungsteil und einen Mini-Test. Wiederholen lohnt sich!</p></div><button class="plain-link" data-nav="analyse">Meine Stärken & Lücken ansehen ↗</button></div>
+ ${[...new Set(TOPICS.map(t=>t.group))].map(group=>`<section class="group-section"><h3>${enc(group)}</h3><div class="topic-grid">${o.topics.filter(t=>t.group===group).map(t=>topicCard(t)).join('')}</div></section>`).join('')}
+ <section class="info-strip"><span class="bubble-icon">💡</span><div><strong>So funktioniert dein Lernbarometer</strong><p>Es kombiniert richtige Antworten und Wiederholungen. Ein Thema gilt erst dann als gut gefestigt, wenn du die einzelnen Unterthemen mehrfach richtig beantwortet hast. „Noch nicht getestet“ bedeutet <em>nicht</em> „falsch“.</p></div></section></div>`;
+}
+function topicCard(t){const stateTxt=!t.n?'Noch nicht getestet':t.mastery>=80?'Gut auf Kurs':'Weiter üben';
+ return `<button class="topic-card" data-nav="thema/${t.id}"><div class="card-top"><span class="topic-icon">${t.icon}</span><span class="tag ${t.n?'tag-soft':''}">${t.time} Min.</span></div><h4>${enc(t.title)}</h4><p>${enc(t.sub)}</p><div class="card-footer">${progressBar(t.mastery,t.title)}<small>${stateTxt} · ${t.mastery}%</small></div></button>`;}
+function topicView(id){const t=getTopic(id);if(!t)return home();
+ return `<div class="topic-page"><button class="back-link" data-nav="home">← Zur Übersicht</button><header class="topic-header"><span class="eyebrow">${enc(t.group)} · ${t.time} MINUTEN LERNZEIT</span><div class="topic-title-row"><span class="big-emoji">${t.icon}</span><div><h1>${enc(t.title)}</h1><p>${enc(t.sub)}</p></div></div><p class="topic-intro">${t.intro}</p></header>
+ <section class="lesson-layout"><div class="lesson-main">${t.blocks.map(([heading,body],i)=>`<article class="lesson-card"><div class="lesson-number">${String(i+1).padStart(2,'0')}</div><div><h2>${heading}</h2><p>${body}</p></div></article>`).join('')}
+ ${diagram(t.diagram)}${(t.id==='bewegung'||t.id==='zustaende')?heatLab():''}
+ <div class="remember"><span>✦</span><div><strong>Merke dir</strong><p>${t.memory}</p></div></div>
+ <div class="sources"><details><summary>Welche Unterlagen stecken hinter diesem Thema?</summary><p>${t.sources.map(enc).join(' · ')}</p><small>Die Beispiele und Verständnisfragen sind lernfreundlich formuliert. Die genannten Arbeitsblätter sind die Grundlage.</small></details></div></div>
+ <aside class="lesson-aside"><div class="lesson-progress"><span class="eyebrow">DEIN FORTSCHRITT</span>${circleHTML(t.mastery,'dieses Thema')}<div class="skill-chips">${t.skillStats.map(s=>`<div class="skill-line"><span>${enc(s.label)}</span><b>${s.n?`${Math.round(s.rate*100)}%`:'Offen'}</b></div>`).join('')}</div></div><div class="test-entry"><span class="eyebrow">JETZT WISSEN PRÜFEN</span><h3>Bereit für den Mini-Test?</h3><p>6 Fragen, neu gemischt aus <strong>${QUESTIONS.filter(x=>x.topic===t.id).length}</strong> möglichen Aufgaben. Du bekommst nach jeder Antwort eine Erklärung.</p><button class="btn primary wide" data-start="${t.id}">Mini-Test starten →</button><small>Du kannst den Test beliebig oft wiederholen.</small></div></aside></section>
+ <div class="bottom-test"><div><strong>Schon gelesen?</strong><span>Jetzt zeigen, was du verstanden hast.</span></div><button class="btn primary" data-start="${t.id}">Kurztest starten →</button></div></div>`;
+}
+function heatLab(){
+ const dots=Array.from({length:16},(_,i)=>`<span class="gas-dot" style="--x:${(i*37)%88}%;--y:${(i*23+17)%83}%;--dx:${i%2?25:-28}px;--dy:${i%3?26:-24}px;--delay:-${(i%5)*.35}s"></span>`).join('');
+ return `<section class="lab-widget"><div class="lab-head"><span class="tag">KLEINES EXPERIMENT</span><h3>Heizen verändert die Bewegung</h3><p>Bewege den Regler. Stell dir vor, wie Teilchen bei unterschiedlicher Temperatur unterwegs sind.</p></div><div class="lab-scene"><div class="gas-box" id="gasBox">${dots}</div><div class="lab-readout"><strong id="heatLabel">Mittelwarm</strong><span id="heatDesc">Die Teilchen bewegen sich.</span></div></div><label class="range-label" for="heatSlider">Temperatur erhöhen</label><input id="heatSlider" type="range" min="1" max="5" value="3" aria-label="Modellhafte Bewegungsgeschwindigkeit" /><small>Modellhafte Darstellung: kein echter Temperaturmesser.</small></section>`;
+}
+function atomDot(x,y,r,fill,label=''){return `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="white" stroke-width="2"/><text x="${x}" y="${y+4}" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">${label}</text>`;}
+function diagram(name){
+ let body='',caption='Vereinfachte Modellzeichnung (nicht massstabsgetreu).';
+ if(name==='states'){
+  const dots=(mode,x)=>{
+   let out='';for(let i=0;i<15;i++){
+    const xx=mode==='gas'?x+18+((i*37)%154):x+40+(i%5)*25+(mode==='liquid'?(i%2)*4:0),yy=mode==='gas'?32+((i*43)%120):mode==='liquid'?102+Math.floor(i/5)*19+(i%2)*4:86+Math.floor(i/5)*23;
+    out+=`<circle cx="${xx}" cy="${yy}" r="${mode==='gas'?6:10}" fill="${mode==='solid'?'#6C8CF5':mode==='liquid'?'#17BFB6':'#E5A64C'}" />`;
+   }return out;};
+  body=`<svg viewBox="0 0 660 220" role="img" aria-label="Fest: Teilchen in Reihen; flüssig: dicht und ungeordnet; gasförmig: weit verteilt"><g font-family="system-ui,sans-serif"><g fill="none" stroke="#a6b6c5" stroke-width="2"><rect x="8" y="18" width="194" height="166" rx="14"/><rect x="233" y="18" width="194" height="166" rx="14"/><rect x="457" y="18" width="194" height="166" rx="14"/></g>${dots('solid',8)}${dots('liquid',233)}${dots('gas',457)}<g fill="#24354C" font-size="15" font-weight="800" text-anchor="middle"><text x="105" y="208">fest</text><text x="330" y="208">flüssig</text><text x="554" y="208">gasförmig</text></g></g></svg>`;
+ }else if(name==='mixture'){
+  const group=(x,y,mixed)=>{let out='';for(let i=0;i<20;i++){
+   const px=x+14+(i%5)*24+(i%2)*2,py=y+12+Math.floor(i/5)*22;
+   const yellow=mixed?(i%3===0):(i>=10);
+   out+=`<circle cx="${px}" cy="${py}" r="9" fill="${yellow?'#e9a454':'#49b9ce'}"/>`;
+  }return out;};
+  body=`<svg viewBox="0 0 660 195" role="img" aria-label="Zwei unterschiedliche Teilchensorten vor und nach dem Mischen"><g fill="none" stroke="#9bafc2" stroke-width="2"><rect x="40" y="10" width="152" height="120" rx="13"/><rect x="463" y="10" width="152" height="120" rx="13"/></g>${group(52,17,false)}${group(475,17,true)}<path d="M230 66 H429" stroke="#455d79" stroke-width="3" stroke-linecap="round"/><path d="M418 55 L430 66 L418 77" fill="none" stroke="#455d79" stroke-width="3"/><g font-size="14" font-family="system-ui,sans-serif" text-anchor="middle" fill="#23374e" font-weight="700"><text x="116" y="157">getrennt</text><text x="539" y="157">durchmischt</text><text x="333" y="55">mischen</text></g></svg>`;
+ }else if(name==='reaction'){
+  body=`<svg viewBox="0 0 660 205" role="img" aria-label="Aus Wasserstoff und Sauerstoff entstehen Wassermoleküle"><g font-family="system-ui,sans-serif" text-anchor="middle"><g font-size="26" font-weight="800" fill="#1b344b"><text x="130" y="72">2 H₂</text><text x="266" y="72">+</text><text x="355" y="72">O₂</text><text x="470" y="72">→</text><text x="563" y="72">2 H₂O</text></g><g font-size="14" fill="#64758b"><text x="130" y="103">Wasserstoff</text><text x="355" y="103">Sauerstoff</text><text x="563" y="103">Wasser</text></g><g font-size="14" fill="#435773" font-weight="700"><text x="229" y="162">Edukte</text><text x="554" y="162">Produkte</text></g><path d="M34 132 H416" stroke="#b0bfd0" stroke-width="2"/><path d="M479 132 H636" stroke="#b0bfd0" stroke-width="2"/></g></svg>`;
+  caption='Die bekannte Reaktionsgleichung ist ein Beispiel für eine chemische Reaktion. Bei anderen Beispielen bleibt das Kriterium gleich: neue Stoffe.';
+ }else if(name==='curve'){
+  body=`<svg viewBox="0 0 660 295" role="img" aria-label="Erwärmungskurve: Anstieg, Plateau bei null Grad, Anstieg, Plateau bei hundert Grad, Anstieg"><g font-family="system-ui,sans-serif"><path d="M80 24 V250 H628" stroke="#76869a" stroke-width="2" fill="none"/><path d="M80 39 L84 27 L88 39 M617 246 L629 250 L617 254" stroke="#76869a" fill="none" stroke-width="2"/><path d="M82 204 H627 M82 113 H627" stroke="#c8d6e3" stroke-dasharray="5 5"/><path d="M100 244 L186 204 L273 204 L377 113 L486 113 L594 41" stroke="#3a83d2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><g font-size="15" fill="#425770"><text x="15" y="30">Temperatur</text><text x="540" y="274">Energie →</text><text x="37" y="208">0 °C</text><text x="27" y="118">100 °C</text></g><g font-size="13" font-weight="800" fill="#a05b13" text-anchor="middle"><text x="229" y="186">Schmelzen</text><text x="432" y="95">Sieden</text></g></g></svg>`;
+  caption='Schematische Erwärmungskurve von Wasser bei Normaldruck; die Abschnitte sind nicht massstabsgetreu.';
+ }else if(name==='transitions'){
+  body=`<div class="transitions"><div class="transition-row"><b>FEST</b><span>↔</span><b>FLÜSSIG</b><span>↔</span><b>GASFÖRMIG</b></div><div class="transition-lines"><span><strong>→</strong> Schmelzen<br><strong>←</strong> Erstarren</span><span><strong>→</strong> Verdampfen<br><strong>←</strong> Kondensieren</span></div><div class="transition-direct">Direkt fest ↔ gasförmig: <strong>Sublimieren →</strong> / <strong>← Resublimieren</strong></div></div>`;
+  caption='Die Pfeile benennen die Übergänge. Für ein direktes Fest-Gas-Paar gelten Sublimieren und Resublimieren.';
+ }else if(name==='molecules'){
+  body=`<svg viewBox="0 0 660 205" role="img" aria-label="Einzelnes Atom, O2 Molekül, H2O Molekül und zwei Ionen"><g font-family="system-ui,sans-serif" text-anchor="middle"><g>${atomDot(75,65,23,'#7da2f2','Ne')}<text x="75" y="139" font-size="16" fill="#314359" font-weight="800">Atom (Ne)</text></g><g>${atomDot(240,65,24,'#f16c68','O')}${atomDot(292,65,24,'#f16c68','O')}<text x="265" y="139" font-size="16" fill="#314359" font-weight="800">Molekül (O₂)</text></g><g>${atomDot(435,66,30,'#f16c68','O')}${atomDot(397,94,20,'#83acd9','H')}${atomDot(473,94,20,'#83acd9','H')}<text x="435" y="139" font-size="16" fill="#314359" font-weight="800">Molekül (H₂O)</text></g><g>${atomDot(572,70,23,'#7c9de6','+')} ${atomDot(621,70,23,'#ddaf6e','−')}<text x="597" y="139" font-size="16" fill="#314359" font-weight="800">Ionen</text></g></g></svg>`;
+ }else if(name==='atom'){
+  body=`<svg viewBox="0 0 660 240" role="img" aria-label="Vereinfachtes Atommodell mit Protonen und Neutronen im Kern sowie Elektronen in der Hülle"><g fill="none" stroke="#91b2ce" stroke-width="2"><ellipse cx="307" cy="109" rx="177" ry="66" transform="rotate(27 307 109)"/><ellipse cx="307" cy="109" rx="177" ry="66" transform="rotate(-27 307 109)"/><ellipse cx="307" cy="109" rx="177" ry="66"/></g>${atomDot(291,106,22,'#df817e','+')}${atomDot(322,106,22,'#6d8fbf','0')}${atomDot(307,132,19,'#df817e','+')}${atomDot(306,80,19,'#6d8fbf','0')}${atomDot(470,109,11,'#53c0a8','−')}${atomDot(181,55,11,'#53c0a8','−')}<g fill="#455a70" font-family="system-ui,sans-serif" font-size="14"><text x="17" y="34">Elektronen (−)</text><text x="490" y="155">Atomkern</text><path d="M362 123 L483 151" stroke="#6f88a2" stroke-width="2"/><text x="17" y="218">Protonen (+), Neutronen (0) im Kern</text></g></svg>`;
+ }else if(name==='pse'){
+ const el=[['1','H','Wasserstoff'],['2','He','Helium'],['3','Li','Lithium'],['4','Be','Beryllium'],['5','B','Bor'],['6','C','Kohlenstoff'],['7','N','Stickstoff'],['8','O','Sauerstoff'],['9','F','Fluor'],['10','Ne','Neon'],['11','Na','Natrium'],['12','Mg','Magnesium'],['13','Al','Aluminium'],['14','Si','Silicium'],['15','P','Phosphor'],['16','S','Schwefel'],['17','Cl','Chlor'],['18','Ar','Argon'],['19','K','Kalium'],['20','Ca','Calcium']];
+  body=`<div class="elements">${el.map(([z,s,n])=>`<div class="element-cell" title="${n}"><small>${z}</small><strong>${s}</strong><span>${n}</span></div>`).join('')}</div>`;
+  caption='Eine Auswahl der ersten 20 Elemente aus dem PSE, nicht das vollständige Periodensystem.';
+ }
+ return `<figure class="science-figure"><div class="figure-top"><strong>Im Modell erklärt</strong><span>Visualisierung</span></div>${body}<figcaption>${caption}</figcaption></figure>`;
+}
+function currentQuiz(){if(!currentTest)return '';
+ const t=getTopic(currentTest.topic), at=currentTest.index, q=currentTest.items[at], finished=!!currentTest.reveal;
+ const chosen=currentTest.selected;
+ return `<div class="quiz-page"><button class="back-link" data-quit>← Zurück zum Thema</button><div class="quiz-head"><div><span class="eyebrow">MINI-TEST · ${enc(t.title)}</span><h1>Zeig, was du weisst.</h1><p>Frage ${at+1} von ${currentTest.items.length} · Eine Antwort auswählen</p></div><span class="quiz-counter">${at+1} / ${currentTest.items.length}</span></div><div class="quiz-progress">${Array.from({length:currentTest.items.length},(_,i)=>`<span class="${i<=at?'active':''}"></span>`).join('')}</div><article class="question-panel"><span class="question-topic">${enc(t.skills.find(x=>x[0]===q.skill)?.[1]||'Wissensfrage')}</span><h2>${enc(q.prompt)}</h2><div class="choices">${currentTest.options.map((c,i)=>{
+  const className=finished?(c===q.correct?'correct':c===chosen?'wrong':''):(c===chosen?'selected':'');
+  return `<button class="choice ${className}" data-answer="${i}" ${finished?'disabled':''}><span class="choice-letter">${'ABCD'[i]}</span><span>${enc(c)}</span>${finished&&c===q.correct?'<span class="answer-status">✓</span>':''}${finished&&c===chosen&&chosen!==q.correct?'<span class="answer-status">×</span>':''}</button>`;
+ }).join('')}</div>${finished?`<div class="feedback ${chosen===q.correct?'feedback-yes':'feedback-no'}"><strong>${chosen===q.correct?'✓ Genau richtig!':'↻ Das schauen wir nochmals an'}</strong><p>${enc(q.why)}</p>${chosen!==q.correct?`<small>Richtig ist: ${enc(q.correct)}</small>`:''}</div>`:''}<div class="quiz-buttons"><span class="little">${finished?'Weiter geht’s':'Tippe auf eine Antwort'}</span>${finished?`<button class="btn primary" data-next>${at===currentTest.items.length-1?'Auswertung ansehen →':'Nächste Frage →'}</button>`:''}</div></article><p class="quiz-help">Du bekommst direkt eine Erklärung, auch wenn die Antwort nicht stimmt. Fehler gehören zum Lernen dazu.</p></div>`;
+}
+function prepareQuiz(tid,focus){const t=getTopic(tid);if(!t)return;
+ let available=QUESTIONS.filter(q=>q.topic===tid);
+ const selected=[],taken=new Set();
+ const skillIds=t.skills.map(s=>s[0]);
+ const recent=state.events.slice(-70).map(e=>e.question).filter(Boolean);
+ const weight=q=>{const s=getSkill(tid,q.skill);let w=1+(1-s.rate)*1.3;if(s.n===0)w+=.5;if(recent.slice(-8).includes(q.id))w*=.06;else if(recent.includes(q.id))w*=.48;return w;};
+ function draw(pool){const options=pool.filter(q=>!taken.has(q.id));if(!options.length)return;
+  const ws=options.map(x=>Math.max(.01,weight(x))),sum=ws.reduce((a,b)=>a+b,0);let r=Math.random()*sum;let v=options[0];for(let i=0;i<options.length;i++){r-=ws[i];if(r<=0){v=options[i];break;}}
+  selected.push(v);taken.add(v.id);
+ }
+ if(focus){for(let i=0;i<4;i++)draw(available.filter(x=>x.skill===focus));}
+ for(let layer=0;layer<3;layer++)for(const skill of shuffle(skillIds))if(selected.length<TEST_SIZE)draw(available.filter(x=>x.skill===skill));
+ while(selected.length<TEST_SIZE)draw(available);
+ currentTest={topic:tid,focus,items:shuffle(selected),index:0,selected:null,reveal:false,answers:[],options:[]};
+ setupQuestion();page='quiz';render();window.scrollTo(0,0);
+}
+function setupQuestion(){if(currentTest){currentTest.selected=null;currentTest.reveal=false;currentTest.options=shuffle(currentTest.items[currentTest.index].choices);}}
+function chooseAnswer(i){if(!currentTest||currentTest.reveal)return;
+ const q=currentTest.items[currentTest.index],c=currentTest.options[i];if(c===undefined)return;
+ currentTest.selected=c;currentTest.reveal=true;currentTest.answers.push({question:q.id,topic:q.topic,skill:q.skill,correct:c===q.correct,ts:Date.now()});render();
+}
+function nextQuestion(){if(!currentTest||!currentTest.reveal)return;
+ if(currentTest.index<currentTest.items.length-1){currentTest.index++;setupQuestion();render();window.scrollTo({top:0,behavior:'instant'});}
+ else{finishQuiz();}
+}
+function finishQuiz(){
+ const t=currentTest.topic,answers=currentTest.answers;
+ state.events.push(...answers);state.rounds.push({topic:t,correct:answers.filter(x=>x.correct).length,total:answers.length,ts:Date.now(),focus:currentTest.focus||null});save();
+ testResult={topic:t,answers,correct:answers.filter(x=>x.correct).length,total:answers.length,focus:currentTest.focus};
+ page='result';currentTest=null;render();window.scrollTo(0,0);
+}
+function resultsView(){if(!testResult){page='home';return home();}
+ const t=getTopic(testResult.topic),rate=testResult.correct/testResult.total;
+ const text=rate===1?'Stark! Alle sechs Fragen richtig.':rate>=.67?'Du hast schon viel verstanden.':rate>=.34?'Guter Anfang! Ein paar Stellen üben wir nochmals.':'Kein Problem: Mit einer Wiederholung wird es klarer.';
+ const local=t.skills.map(([k,label])=>{const a=testResult.answers.filter(x=>x.skill===k),correct=a.filter(x=>x.correct).length;return {key:k,label,count:a.length,correct};}).filter(x=>x.count>0);
+ const weak=local.filter(x=>x.correct<x.count);
+ return `<div class="result-page"><button class="back-link" data-nav="thema/${t.id}">← Zum Lernstoff</button><section class="result-hero"><div class="party-icon">${rate===1?'🎉':rate>=.5?'🌱':'💡'}</div><span class="eyebrow">MINI-TEST ABGESCHLOSSEN</span><h1>${text}</h1><p><strong>${testResult.correct} von ${testResult.total}</strong> Fragen richtig. Dein Fortschritt wurde auf diesem Gerät gespeichert.</p><div class="result-score">${circleHTML(Math.round(rate*100),'richtig im Test')}<div><span>Fortschritt im Thema</span><strong>${t.mastery}%</strong><small>Mehrere gute Tests festigen dein Wissen.</small></div></div></section><section class="result-analysis"><h2>Das hast du verstanden</h2><div class="subresults">${local.map(x=>`<div class="subresult"><span class="sub-dot ${x.correct===x.count?'ok':'needs'}">${x.correct===x.count?'✓':'↻'}</span><div><strong>${enc(x.label)}</strong><span>${x.correct} von ${x.count} richtig ${x.correct===x.count?'· Das klappt schon!':'· Noch etwas üben'}</span></div></div>`).join('')}</div>
+ <h2>${weak.length?'Hier kannst du gezielt nachbessern':'Was ist als Nächstes sinnvoll?'}</h2><p>${weak.length?'Diese Unterthemen waren im letzten Test noch nicht sicher. Wiederhole die Erklärung und mache danach neue Fragen.':'Versuche einen zweiten Kurztest mit anderen Fragen. Erst durch wiederholte richtige Antworten wird ein Thema wirklich sicher.'}</p><div class="result-actions">${weak.length?`<button class="btn primary" data-focus="${t.id}:${weak[0].key}">Schwächstes Unterthema üben →</button>`:`<button class="btn primary" data-start="${t.id}">Noch einen Test machen →</button>`}<button class="btn secondary" data-nav="thema/${t.id}">Erklärung nochmals ansehen</button><button class="btn ghost" data-nav="home">Zur Übersicht</button></div></section></div>`;
+}
+function analysis(){const o=overview(), weakest=o.topics.filter(t=>t.n>0).sort((a,b)=>a.mastery-b.mastery);
+ const sc=o.score;
+ return `<div class="analysis-page"><button class="back-link" data-nav="home">← Zur Startseite</button><header class="analysis-header"><span class="eyebrow">DEINE LERNANALYSE</span><h1>Was sitzt schon – und was noch nicht?</h1><p>Hier siehst du nicht nur Testergebnisse, sondern auch, <strong>welches Unterthema</strong> du nochmals anschauen solltest.</p></header><section class="analysis-summary"><div class="analysis-meter">${circleHTML(sc,'Lernfortschritt')}<div><strong>Gesamtfortschritt</strong><p>Der Balken steigt mit richtigen Antworten und erneuten erfolgreichen Tests. Noch nie geprüfte Themen zählen als <em>offen</em>.</p></div></div><div class="analysis-facts"><div><strong>${o.tested}/${TOPICS.length}</strong><span>Themen ausprobiert</span></div><div><strong>${o.accuracy===null?'–':o.accuracy+'%'}</strong><span>Antworten richtig</span></div><div><strong>${o.solid}</strong><span>Themen gut gefestigt</span></div></div></section>
+ ${o.answered?`<section class="next-steps"><h2>Deine nächsten sinnvollen Schritte</h2><div class="next-cards">${weakest.slice(0,3).map(t=>`<button data-nav="thema/${t.id}"><span>${t.icon} ${enc(t.title)}</span><strong>${t.mastery}% gefestigt</strong><small>${t.skillStats.filter(x=>x.status==='Wiederholen'||x.status==='Noch üben').length} Unterthemen brauchen Übung · →</small></button>`).join('')}</div></section>`:`<section class="next-steps"><h2>Starte zuerst einen Kurztest</h2><p>Danach erscheinen hier persönliche Empfehlungen auf Grundlage deiner Antworten.</p><button class="btn primary" data-nav="thema/chemie">Mit Chemie beginnen →</button></section>`}
+ <section class="deep-analysis"><div class="section-heading"><div><h2>Alle Themen im Detail</h2><p>Klappe ein Thema auf, um seine einzelnen Lernziele zu sehen.</p></div></div><div class="analyse-list">${o.topics.map((t,i)=>`<details class="analyse-topic" ${o.answered&&t.n>0&&t.mastery<60?'open':''}><summary><span class="analysis-list-ico">${t.icon}</span><span class="analysis-name"><strong>${enc(t.title)}</strong><small>${t.n?`${t.n} Antworten · ${Math.round(t.rate*100)}% richtig`:'Noch nicht getestet'}</small></span><span class="analysis-trackbar">${progressBar(t.mastery,t.title)}</span><b>${t.mastery}%</b><span class="chevron">⌄</span></summary><div class="analyse-expanded"><p class="analysis-note">${!t.n?'Noch keine Testantworten. Erst nach einem Kurztest ist eine Einschätzung möglich.':t.mastery>=80?'Dieses Thema ist recht gut gefestigt. Andere Fragen bleiben trotzdem sinnvoll.':'Der Wert berücksichtigt richtige Antworten UND wie oft du sie bereits sicher gezeigt hast.'}</p>${t.skillStats.map(s=>`<div class="skill-detail"><div class="skill-detail-heading"><strong>${enc(s.label)}</strong><span class="${s.status==='Sicher'?'tone-good':s.n?'tone-warn':'tone-neutral'}">${s.status}</span></div>${progressBar(s.mastery,s.label)}<div class="skill-detail-foot"><small>${s.n?`${s.correct} von ${s.n} (letzte max. 12 Fragen) richtig`:'Noch nicht geprüft'}</small><button class="tiny-btn" data-focus="${t.id}:${s.key}">Gezielt testen ↗</button></div></div>`).join('')}<button class="btn secondary" data-nav="thema/${t.id}">Lernstoff ansehen →</button></div></details>`).join('')}</div></section>
+ <section class="methodology"><h2>So wird dein Lernstand berechnet</h2><p>Jedes Unterthema erhält maximal 100 Punkte. Dabei zählen <strong>Trefferquote</strong> und <strong>Wiederholungssicherheit</strong>: Erst ab vier beantworteten Fragen pro Unterthema kann es 100 Punkte erreichen. Für die aktuelle Einschätzung werden jeweils die letzten zwölf Antworten betrachtet. Der Gesamtwert ist der Durchschnitt aller 15 Themen. Noch nicht getestete Unterthemen bleiben als offen markiert. Das ist ein Lernbarometer, keine Schulnote.</p><details><summary>Datenschutz und Speichern</summary><p>Deine Antworten bleiben lokal in deinem Browser. Sie werden nicht an einen Server geschickt. Auf einer Website wird zusätzlich eine kleine Zusammenfassung in einem Cookie abgelegt; beim direkten Öffnen einer HTML-Datei verhindern manche Browser Cookies. Dann übernimmt der lokale Browserspeicher. Ein anderer Browser, privates Fenster oder das Löschen von Browserdaten kann den Fortschritt entfernen. Nutze deshalb bei Bedarf die Datensicherung unten.</p></details><div class="data-buttons"><button class="btn secondary" data-export>Fortschritt sichern (.json)</button><button class="btn secondary" data-import>Fortschritt laden (.json)</button><button class="btn danger" data-reset>Alles zurücksetzen</button></div><small id="storageStatus">Speicherstatus: ${enc(storageMode||'Lokaler Browserspeicher')}</small><input id="importFile" type="file" accept="application/json,.json" hidden /></section></div>`;
+}
+function render(){const root=byId('app');if(!root)return;
+ const hash=location.hash.replace(/^#/,'');if(page!=='quiz'&&page!=='result')page=hash||'home';
+ let main;if(page==='home')main=home();else if(page==='analyse')main=analysis();else if(page.startsWith('thema/'))main=topicView(page.slice(6));else if(page==='quiz')main=currentQuiz();else if(page==='result')main=resultsView();else{page='home';main=home();}
+ root.innerHTML=`<div class="app-shell"><aside class="sidebar"><div class="brand" data-nav="home" role="button" tabindex="0" aria-label="Zur Übersicht"><span class="brand-icon">⚛</span><span><strong>LUCYS LABOR</strong><small>Die Chemie-Lernwelt</small></span></div><div class="sidebar-caption">DEINE THEMEN</div>${navLinks()}<div class="side-bottom"><div class="side-footer">✨ Schritt für Schritt besser</div><small>Vollständig offline nutzbar</small></div></aside><div class="workspace"><header class="mobile-top"><button class="brand mobile-brand" data-nav="home"><span class="brand-icon">⚛</span><strong>LUCYS LABOR</strong></button><button class="mobile-menu-btn" data-menu aria-label="Menü öffnen">☰ Themen</button></header><main class="main-content">${main}</main><footer class="footer"><span>Mit Liebe zum Verstehen gemacht ✦</span><span>Aus Lucys Chemie-Unterlagen · 13 Jahre · ${QUESTIONS.length} Übungsfragen</span></footer></div></div><div class="mobile-shade" id="shade" data-menu></div>`;
+ const slider=byId('heatSlider');if(slider) {slider.addEventListener('input',setHeat);setHeat();}
+ if(page!=='quiz')byId('mobileNav')?.classList.remove('open');
+ document.title=(page.startsWith('thema/')?TOPICS.find(t=>t.id===page.slice(6))?.title+' · ':page==='analyse'?'Lernanalyse · ':'')+'Lucys Labor – Chemie lernen';
+}
+function setHeat(){const r=byId('heatSlider');if(!r)return;const n=Number(r.value),names=['Sehr kalt','Kühl','Mittelwarm','Warm','Sehr warm'];const descriptions=['Teilchen bewegen sich langsam.','Die Bewegung wird etwas heftiger.','Die Teilchen bewegen sich.','Die Teilchen bewegen sich schneller.','Die Teilchen sind besonders schnell unterwegs.'];
+ byId('heatLabel').textContent=names[n-1];byId('heatDesc').textContent=descriptions[n-1];byId('gasBox').style.setProperty('--duration',(7.2-n*1.13)+'s');}
+function exportProgress(){const blob=new Blob([JSON.stringify({app:'Lucys Chemielabor',version:1,exported:new Date().toISOString(),state},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Lucys-Chemie-Fortschritt.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
+function importProgress(file){if(!file)return;const r=new FileReader();r.onload=()=>{try{const v=JSON.parse(r.result);if(v.version!==1||!v.state||!Array.isArray(v.state.events))throw Error('Dateiformat');
+ const safe=v.state.events.filter(x=>x&&TOPICS.some(t=>t.id===x.topic&&t.skills.some(s=>s[0]===x.skill))&&typeof x.correct==='boolean'&&Number.isFinite(x.ts));
+ if(!confirm(`${safe.length} gespeicherte Antworten importieren? Der bisherige Lernstand wird ersetzt.`))return;
+ state.events=safe;state.rounds=Array.isArray(v.state.rounds)?v.state.rounds.filter(x=>TOPICS.some(t=>t.id===x.topic)):[];state.created=v.state.created||Date.now();save();render();alert('Lernstand erfolgreich geladen.');
+ }catch(e){alert('Diese Datei ist keine gültige Sicherung von Lucys Chemielabor.');}};r.readAsText(file);}
+function toggleMenu(){document.body.classList.toggle('menu-open')}
+document.addEventListener('click',e=>{
+ const el=e.target.closest('button,[data-nav],[data-quit],[data-menu]');if(!el)return;
+ if(el.hasAttribute('data-menu')){toggleMenu();return;}
+ const go=el.getAttribute('data-nav');if(go){if(currentTest&&!confirm('Den laufenden Test wirklich verlassen? Deine bisherigen Antworten werden noch nicht gespeichert.'))return;
+ currentTest=null;testResult=null;document.body.classList.remove('menu-open');nav(go);return;}
+ if(el.hasAttribute('data-quit')){if(currentTest&&!confirm('Laufenden Test abbrechen?'))return;const id=currentTest?.topic;currentTest=null;testResult=null;page='home';nav('thema/'+id);return;}
+ if(el.hasAttribute('data-start')){prepareQuiz(el.getAttribute('data-start'),null);return;}
+ if(el.hasAttribute('data-focus')){const [id,skill]=el.getAttribute('data-focus').split(':');prepareQuiz(id,skill);return;}
+ if(el.hasAttribute('data-answer')){chooseAnswer(Number(el.getAttribute('data-answer')));return;}
+ if(el.hasAttribute('data-next')){nextQuestion();return;}
+ if(el.hasAttribute('data-export')){exportProgress();return;}
+ if(el.hasAttribute('data-import')){byId('importFile')?.click();return;}
+ if(el.hasAttribute('data-reset')){if(confirm('Wirklich alle gespeicherten Antworten und Fortschritte auf diesem Gerät löschen?')){state.events=[];state.rounds=[];save();render();}return;}
+});
+document.addEventListener('change',e=>{if(e.target.id==='importFile'){importProgress(e.target.files[0]);e.target.value='';}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.classList?.contains('brand'))nav('home');});
+window.addEventListener('hashchange',()=>{if(page==='quiz'){return;}page=location.hash.replace(/^#/,'')||'home';render();window.scrollTo(0,0);});
+load();render();
+</script></body></html>
